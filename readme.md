@@ -1,16 +1,22 @@
 ## Stap 1: Het idee
 
-```
-Voor een cattery hebben we een systeem nodig waarin de administratie wordt bijgehouden. 
+![img.png](img.png)
 
-De cattery krijgt een paar keer in het jaar een nestje met kittens (verschillende rassen). Een administratief medewerker voegt de kittens toe aan het systeem. De kittens krijgen een stamboom, vaccinatie, worden ontwormd en er is een foto die worden geüpload door de administratief medewerker.	
-									
-Wanneer een klant een kitten(s) wilt hebben wordt deze klant door de administratief medewerker in het systeem gezet. Gegevens die worden opgeslagen zijn naam, adres, woonplaats, telefoonnummer, e-mail, kinderen en andere huisdieren.							
-		
-Wanneer een kitten(s) beschikbaar is dan wordt een klant gecontacteerd middels een email of via de telefoon door de backoffice (haalt deze informatie uit het systeem). De backoffice kan kittens en andere informatie toevoegen/verwijderen/updaten aan het systeem. 	
+## Stap 2: ontwerp UML
 
-Daarnaast doet de backoffice afhandeling met de klant. Dat betekend wanneer de klant de kitten(s) komt ophalen, hij een door het systeem gegenereerde bon krijgt. De bon kan per kitten verschillen, dat ligt aan het 	ras dat de klant wilt, maar ook of de klant de kitten zelf eenmaal of tweemaal laat vaccineren, of dat hij dit door de cattery laat doen.
-```
+### Eerste opzet 
+
+De rode woorden zijn zelfstandige naamwoorden, de groene woorden zijn de werkwoorden.
+
+![img2.png](img2.png)
+
+De zelfstandige naamwoorden voor het idee zijn als volgt.
+
+- Administratief medewerker
+- Backoffice
+- Kitten
+- Klant
+
 
 ## Software
 

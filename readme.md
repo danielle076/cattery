@@ -1,6 +1,6 @@
 ## Stap 1: Het idee
 
-![img.png](img.png)
+![img.png](pictures/img.png)
 
 ## Stap 2: ontwerp UML
 
@@ -8,7 +8,7 @@
 
 De rode woorden zijn zelfstandige naamwoorden, de groene woorden zijn de werkwoorden.
 
-![img2.png](img2.png)
+![img2.png](pictures/img2.png)
 
 De zelfstandige naamwoorden voor het idee zijn als volgt.
 
@@ -17,6 +17,13 @@ De zelfstandige naamwoorden voor het idee zijn als volgt.
 - Kitten
 - Klant
 
+### Klassendiagram
+
+_Concept klassendiagram_
+
+![img3.png](img3.png)
+
+![img4.png](img4.png)
 
 ## Software
 

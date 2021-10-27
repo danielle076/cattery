@@ -150,4 +150,4 @@ We gaan de entities maken die we in ons klassendiagram hebben gezet. We maken ee
 
 Dit worden de tabellen in postgreSQL.
 
-![img.png](img.png)
+![img5.png](pictures/img5.png)

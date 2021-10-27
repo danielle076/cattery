@@ -143,3 +143,11 @@ De pom.xml heeft de volgende structuur:
 - `url` is de database naam in pgAdmin
 - `username` is jouw username in pgAdmin
 - `password` is jouw wachtwoord in pgAdmin
+
+### Stap 6: model
+
+We gaan de entities maken die we in ons klassendiagram hebben gezet. We maken een nieuwe package genaamd `model` en nieuwe klasse genaamd `Person.java`, `Kitten.java` en `Customer.java` in IntelliJ.
+
+Dit worden de tabellen in postgreSQL.
+
+![img.png](img.png)

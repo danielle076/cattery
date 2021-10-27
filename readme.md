@@ -21,13 +21,13 @@ De zelfstandige naamwoorden voor het idee zijn als volgt.
 
 _Concept klassendiagram_
 
-![img3.png](img3.png)
+![img3.png](pictures/img3.png)
 
-![img4.png](img4.png)
+![img4.png](pictures/img4.png)
 
 ## Software
 
-### Stap 1: Initializr
+### Stap 3: Initializr
 
 Ga naar de website <a href="https://start.spring.io" target="_blank">spring.io</a>. De volgende gegevens vul je in voor
 het eerste Spring Boot project.
@@ -52,7 +52,7 @@ Klik vervolgens rechtsonder in IntelliJ op `Load`.
 
 Ga naar File > Project Structure en zet `Project SDK` op 11. Klik op apply.
 
-### Stap 2: pom.xml
+### Stap 4: pom.xml 
 
 Wanneer je in `pom.xml` een foutmelding krijgt, zet je de `<parent>` versie op `<version>2.4.3</version>` en wanneer je een foutmelding in de `<plugin>` krijg zet je de versie er tussen op de volgende manier: `<version>${project.parent.version}</version>`.
 
@@ -111,3 +111,35 @@ De pom.xml heeft de volgende structuur:
 
 </project>
 ```
+### Stap 5: application.properties
+
+`@SpringBootApplication` moet gaan communiceren met postgreSQL. Om dit voorelkaar te krijgen moet je in het project van IntelliJ naar `resources` gaan en dan `application.properties`. De gegevens van postgreSQL worden aan de hand van de code die je daar inzet gekoppeld met de database.
+
+    # datasource PostgreSQl
+    spring.datasource.platform=postgres
+    spring.datasource.url=jdbc:postgresql://localhost:5432/cattery
+    spring.datasource.username=postgres
+    spring.datasource.password=postgres123
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    
+    # jpa
+    spring.jpa.database=postgresql
+    spring.jpa.show-sql=true
+    
+    # generate schema dll to create tables
+    spring.jpa.generate-ddl=true
+    spring.jpa.hibernate.ddl-auto=create
+    spring.datasource.initialization-mode=always
+    
+    # database initialization with data.sql after hibernate
+    spring.jpa.defer-datasource-initialization=true
+    
+    # hibernate
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    
+    # Fix Postgres JPA Error (Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented).
+    spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
+- `url` is de database naam in pgAdmin
+- `username` is jouw username in pgAdmin
+- `password` is jouw wachtwoord in pgAdmin

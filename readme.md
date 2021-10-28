@@ -168,3 +168,49 @@ We gaan verder met alleen `user`. We maken een nieuwe package aan genaamd `repos
 ### Stap 8: service
 
 We maken een nieuwe package aan genaamd `service` met daarin 1 bestand: `UserService.java`.
+
+### Stap 9: controller
+
+Maak een nieuwe package aan genaamd `controller` met daarin 2 bestanden: `UserController.java` en `ValidationHandler.java`.
+
+### Stap 10: test applicatie: users toevoegen
+
+Run de applicatie.
+
+##### POST toevoegen verkeerde user
+
+In postgreSQL vul je url `http://localhost:8080/users` in met methode `POST` en in de request body zet je het volgende.
+
+```
+{
+  "userName": "a",
+  "email": "hallo",
+  "password": "123"
+}
+```
+
+In de response body krijg je het volgende terug.
+
+![img6.png](pictures/img6.png)
+
+##### POST toevoegen juiste user
+
+In postgreSQL vul je url `http://localhost:8080/users` in met methode `POST` en in de request body zet je het volgende.
+
+```
+{
+  "userName": "Danielle",
+  "email": "intoyou@gmail.com",
+  "password": "123456"
+}
+```
+
+In de response body krijg je het volgende terug.
+
+![img7.png](pictures/img7.png)
+
+##### GET
+
+In postgreSQL vul je url `http://localhost:8080/users` in met methode `GET`.
+
+![img8.png](pictures/img8.png)

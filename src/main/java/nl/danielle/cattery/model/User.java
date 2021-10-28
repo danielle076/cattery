@@ -19,7 +19,7 @@ public class User {
     private String userName;
 
     @NotEmpty
-    @Email
+    @Email (message = "the email address is invalid")
     @Column
     private String email;
 

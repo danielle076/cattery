@@ -163,4 +163,8 @@ We voegen een nieuwe `dependency` toe aan `pom.xml` voor validatiebeperkingen di
 
 ### Stap 7: repository
 
-We gaan verder met alleen `user`. We maken een nieuwe package aan genaamd repository met daarin 1 bestand: `UserRepository.java`. In deze package praat de `UserRepository` klasse met de database.
+We gaan verder met alleen `user`. We maken een nieuwe package aan genaamd `repository` met daarin 1 bestand: `UserRepository.java`. In deze package praat de `UserRepository` klasse met de database.
+
+### Stap 8: service
+
+We maken een nieuwe package aan genaamd `service` met daarin 1 bestand: `UserService.java`.

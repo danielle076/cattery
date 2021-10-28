@@ -151,3 +151,12 @@ We gaan de entities maken die we in ons klassendiagram hebben gezet. We maken ee
 Dit worden de tabellen in postgreSQL.
 
 ![img5.png](pictures/img5.png)
+
+We voegen een nieuwe `dependency` toe aan `pom.xml`
+
+```xml
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```

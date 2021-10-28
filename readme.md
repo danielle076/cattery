@@ -152,7 +152,7 @@ Dit worden de tabellen in postgreSQL.
 
 ![img5.png](pictures/img5.png)
 
-We voegen een nieuwe `dependency` toe aan `pom.xml`
+We voegen een nieuwe `dependency` toe aan `pom.xml` voor validatiebeperkingen die zijn toegepast op `User.java`.
 
 ```xml
 <dependency>
@@ -160,3 +160,7 @@ We voegen een nieuwe `dependency` toe aan `pom.xml`
 <artifactId>spring-boot-starter-validation</artifactId>
 </dependency>
 ```
+
+### Stap 7: repository
+
+We gaan verder met alleen `user`. We maken een nieuwe package aan genaamd repository met daarin 1 bestand: `UserRepository.java`. In deze package praat de `UserRepository` klasse met de database.

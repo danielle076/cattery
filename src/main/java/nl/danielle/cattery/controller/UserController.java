@@ -11,20 +11,20 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
-    @GetMapping(value = "users")
+    @GetMapping(value = "")
     public ResponseEntity<Object> getUser() {
         List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @PostMapping("users")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+    @PostMapping("")
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User savedUser = userService.createUser(user);
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
     }

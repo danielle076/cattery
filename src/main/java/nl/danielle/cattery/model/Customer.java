@@ -26,9 +26,9 @@ public class Customer {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @NotNull
-    @Column
-    private String address;
+    @OneToOne(fetch = FetchType.LAZY,
+            mappedBy = "customer")
+    private Address address;
 
     @NotNull
     @Column
@@ -46,12 +46,15 @@ public class Customer {
     @Column(name = "other_pets")
     private String otherPets;
 
-    public Customer() {
+    public Customer(String firstName, String lastName, String dateOfBirth, String email, int phoneNumber, String kids, String otherPets) {
     }
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Customer() {
     }
 
     public long getId() {
@@ -86,11 +89,11 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -130,19 +133,19 @@ public class Customer {
         return this.getFirstName() + " " + this.getLastName();
     }
 
-    public int getAge() {
-        return getAge(LocalDate.now());
-    }
-
-    public int getAge(LocalDate onDate) {
-        return calculateAge(this.dateOfBirth, onDate);
-    }
-
-    private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
-        if ((birthDate != null) && (currentDate != null)) {
-            return Period.between(birthDate, currentDate).getYears();
-        } else {
-            return 0;
-        }
-    }
+//    public int getAge() {
+//        return getAge(LocalDate.now());
+//    }
+//
+//    public int getAge(LocalDate onDate) {
+//        return calculateAge(this.dateOfBirth, onDate);
+//    }
+//
+//    private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+//        if ((birthDate != null) && (currentDate != null)) {
+//            return Period.between(birthDate, currentDate).getYears();
+//        } else {
+//            return 0;
+//        }
+//    }
 }

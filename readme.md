@@ -240,8 +240,10 @@ In Postman gebruik je de url `https://localhost:8443/users`. Zorg ervoor dat je 
 
 ![img9.png](pictures/img9.png)
 
-## Stap 12: data.sql
+## Stap 12: exception
 
-We gaan de database vullen met informatie over `customers`, dit doen we met `data.sql` in `resources`.
+We maken een nieuwe package aan genaamd `exception` met daarin 4 bestanden: `DatabaseErrorException.java`, `DuplicateRecordInDatabase.java`, `RecordNotFoundException.java` en `StatusErrorException.java`.
 
->> doet het niet. Wanneer bestand is aangemaakt en je runt applicatie geeft hij een error
+## Stap 13: address
+
+Address invoeren in customer is niet handig, daarom gebruiken we een aparte CustomerBuilder.

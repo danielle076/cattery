@@ -3,8 +3,11 @@ package nl.danielle.cattery.controller;
 import nl.danielle.cattery.model.Customer;
 import nl.danielle.cattery.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/customers")
@@ -13,28 +16,39 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping(value = "")
-    public ResponseEntity<Object> getCustomers() {
-        return ResponseEntity.ok().body(customerService.getAllCustomers());
+    @GetMapping(value = "/list")
+    public ResponseEntity<Object> getClients() {
+        List<Customer> customers = customerService.getAllCustomers();
+        return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getCustomer(@PathVariable long id) {
-        return ResponseEntity.ok().body(customerService.getCustomer(id));
+    public ResponseEntity<Object> getCustomer(@PathVariable("id") long id) {
+        Customer customer = customerService.getCustomerById(id);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping(value = "/")
     public ResponseEntity<Object> createCustomer(@RequestBody Customer customer) {
-        return ResponseEntity.ok().body(customerService.createCustomer(customer));
+        customerService.createCustomer(customer);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateCustomer(@PathVariable long id, @RequestBody Customer customer) {
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Object> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
+        customerService.updateCustomer(id, customer);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Object> deleteCustomer(@PathVariable long id) {
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Object> deleteCustomer(@PathVariable("id") long id) {
+        customerService.deleteCustomer(id);
+        return new ResponseEntity<>("Customer with ID " + id + " deleted", HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping(value = "/lastname/{lastname}")
+    public ResponseEntity<Object> getCustomerLastName(@PathVariable("lastname") String lastName) {
+        Customer customer = customerService.getCustomerByLastName(lastName);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 }

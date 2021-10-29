@@ -214,3 +214,28 @@ In de response body krijg je het volgende terug.
 In postgreSQL vul je url `http://localhost:8080/users` in met methode `GET`.
 
 ![img8.png](pictures/img8.png)
+
+## Stap 11: HTTPS
+
+Het grote nadeel van basic authentication is dat alles openbaar is. 
+
+We maken een zelfondertekend certificaat en zetten het gemaakte bestand `certificate.jks` in de map `resources`.
+
+Aan het bestand `application.properties` voeg je de volgende code toe.
+
+```
+server.ssl.key-store=classpath:certificate.jks
+server.ssl.key-store-type=pkcs12
+server.ssl.key-store-password=password
+server.ssl.key-password=password
+server.ssl.key-alias=certificate
+server.port=8443
+```
+
+##### Test applicatie
+
+Run de applicatie.
+
+In Postman gebruik je de url `https://localhost:8443/users`. Zorg ervoor dat je bij de settings het zelfondertekende certificaat toestaat.
+
+![img9.png](img9.png)

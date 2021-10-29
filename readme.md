@@ -238,4 +238,10 @@ Run de applicatie.
 
 In Postman gebruik je de url `https://localhost:8443/users`. Zorg ervoor dat je bij de settings het zelfondertekende certificaat toestaat.
 
-![img9.png](img9.png)
+![img9.png](pictures/img9.png)
+
+## Stap 12: data.sql
+
+We gaan de database vullen met informatie over `customers`, dit doen we met `data.sql` in `resources`.
+
+>> doet het niet. Wanneer bestand is aangemaakt en je runt applicatie geeft hij een error

@@ -3,9 +3,11 @@ package nl.danielle.cattery.model;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -19,6 +21,10 @@ public class Customer {
     @NotNull
     @Column(name = "last_name")
     private String lastName;
+
+    @NotNull
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
 
     @NotNull
     @Column
@@ -39,6 +45,14 @@ public class Customer {
     @NotNull
     @Column(name = "other_pets")
     private String otherPets;
+
+    public Customer() {
+    }
+
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public long getId() {
         return id;
@@ -62,6 +76,14 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getAddress() {
@@ -102,5 +124,25 @@ public class Customer {
 
     public void setOtherPets(String otherPets) {
         this.otherPets = otherPets;
+    }
+
+    public String getFullName() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
+    public int getAge() {
+        return getAge(LocalDate.now());
+    }
+
+    public int getAge(LocalDate onDate) {
+        return calculateAge(this.dateOfBirth, onDate);
+    }
+
+    private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
     }
 }

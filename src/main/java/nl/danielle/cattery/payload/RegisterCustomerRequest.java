@@ -1,34 +1,34 @@
 package nl.danielle.cattery.payload;
 
-import javax.validation.constraints.NotBlank;
+import com.sun.istack.NotNull;
 
-public class RegisterUserRequest {
+public class RegisterCustomerRequest {
 
     //Customer
-    @NotBlank
+    @NotNull
     private String firstName;
-    @NotBlank
+    @NotNull
     private String lastName;
-    @NotBlank
+    @NotNull
     private String dateOfBirth;
-    @NotBlank
+    @NotNull
     private String email;
-    @NotBlank
+    @NotNull
     private int phoneNumber;
-    @NotBlank
+    @NotNull
     private String kids;
-    @NotBlank
+    @NotNull
     private String otherPets;
 
     //Address
-    @NotBlank
+    @NotNull
     private String streetName;
-    @NotBlank
+    @NotNull
     private String houseNumber;
     private String houseNumberAddition; //optioneel
-    @NotBlank
+    @NotNull
     private String postalCode;
-    @NotBlank
+    @NotNull
     private String homeTown;
 
     public String getFirstName() {

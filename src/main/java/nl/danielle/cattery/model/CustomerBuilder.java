@@ -1,6 +1,6 @@
 package nl.danielle.cattery.model;
 
-import nl.danielle.cattery.payload.RegisterUserRequest;
+import nl.danielle.cattery.payload.RegisterCustomerRequest;
 
 public class CustomerBuilder {
 
@@ -20,22 +20,22 @@ public class CustomerBuilder {
     private String postalCode;
     private String homeTown;
 
-    public CustomerBuilder(RegisterUserRequest registerUserRequest){
-        this.firstName = registerUserRequest.getFirstName();
-        this.lastName = registerUserRequest.getLastName();
-        this.dateOfBirth = registerUserRequest.getDateOfBirth();
-        this.email = registerUserRequest.getEmail();
-        this.phoneNumber = registerUserRequest.getPhoneNumber();
-        this.kids = registerUserRequest.getKids();
-        this.otherPets = registerUserRequest.getOtherPets();
-        this.streetName = registerUserRequest.getStreetName();
-        this.houseNumber = registerUserRequest.getHouseNumber();
-        this.postalCode = registerUserRequest.getPostalCode();
-        this.homeTown = registerUserRequest.getHomeTown();
+    public CustomerBuilder(RegisterCustomerRequest registerCustomerRequest){
+        this.firstName = registerCustomerRequest.getFirstName();
+        this.lastName = registerCustomerRequest.getLastName();
+        this.dateOfBirth = registerCustomerRequest.getDateOfBirth();
+        this.email = registerCustomerRequest.getEmail();
+        this.phoneNumber = registerCustomerRequest.getPhoneNumber();
+        this.kids = registerCustomerRequest.getKids();
+        this.otherPets = registerCustomerRequest.getOtherPets();
+        this.streetName = registerCustomerRequest.getStreetName();
+        this.houseNumber = registerCustomerRequest.getHouseNumber();
+        this.postalCode = registerCustomerRequest.getPostalCode();
+        this.homeTown = registerCustomerRequest.getHomeTown();
     }
 
-    public CustomerBuilder withHousenumberAddition(RegisterUserRequest registerUserRequest){
-        this.houseNumberAddition = registerUserRequest.getHouseNumberAddition();
+    public CustomerBuilder withHousenumberAddition(RegisterCustomerRequest registerCustomerRequest){
+        this.houseNumberAddition = registerCustomerRequest.getHouseNumberAddition();
         return this;
     }
 

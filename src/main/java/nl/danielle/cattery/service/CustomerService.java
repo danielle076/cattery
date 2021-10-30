@@ -5,7 +5,7 @@ import nl.danielle.cattery.exception.RecordNotFoundException;
 import nl.danielle.cattery.model.Address;
 import nl.danielle.cattery.model.Customer;
 import nl.danielle.cattery.model.CustomerBuilder;
-import nl.danielle.cattery.payload.RegisterUserRequest;
+import nl.danielle.cattery.payload.RegisterCustomerRequest;
 import nl.danielle.cattery.repository.AddressRepository;
 import nl.danielle.cattery.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -46,11 +46,11 @@ public class CustomerService {
         }
     }
 
-    public long saveCustomer(RegisterUserRequest registerUserRequest) {
+    public long saveCustomer(RegisterCustomerRequest registerCustomerRequest) {
 
-        Customer customer = new CustomerBuilder(registerUserRequest).buildCustomer();
-        Address address = new CustomerBuilder(registerUserRequest)
-                .withHousenumberAddition(registerUserRequest)
+        Customer customer = new CustomerBuilder(registerCustomerRequest).buildCustomer();
+        Address address = new CustomerBuilder(registerCustomerRequest)
+                .withHousenumberAddition(registerCustomerRequest)
                 .buildAddress();
 
         Address savedAddress = addressRepository.save(address);

@@ -2,7 +2,6 @@ package nl.danielle.cattery.controller;
 
 import nl.danielle.cattery.model.Customer;
 import nl.danielle.cattery.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +12,12 @@ import java.util.List;
 @RequestMapping(value = "/customers")
 public class CustomerController {
 
-    @Autowired
+    final
     CustomerService customerService;
+
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping(value = "/list")
     public ResponseEntity<Object> getClients() {

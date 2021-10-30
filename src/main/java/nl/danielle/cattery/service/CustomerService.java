@@ -8,18 +8,23 @@ import nl.danielle.cattery.model.CustomerBuilder;
 import nl.danielle.cattery.payload.RegisterUserRequest;
 import nl.danielle.cattery.repository.AddressRepository;
 import nl.danielle.cattery.repository.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CustomerService {
-    @Autowired
+
+    final
     CustomerRepository customerRepository;
 
-    @Autowired
+    final
     AddressRepository addressRepository;
+
+    public CustomerService(CustomerRepository customerRepository, AddressRepository addressRepository) {
+        this.customerRepository = customerRepository;
+        this.addressRepository = addressRepository;
+    }
 
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();

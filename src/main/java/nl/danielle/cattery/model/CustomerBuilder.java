@@ -1,6 +1,5 @@
 package nl.danielle.cattery.model;
 
-
 import nl.danielle.cattery.payload.RegisterUserRequest;
 
 public class CustomerBuilder {

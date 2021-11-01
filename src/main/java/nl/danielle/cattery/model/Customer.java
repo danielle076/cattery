@@ -4,7 +4,6 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 
 @Entity
 @Table(name = "customers")

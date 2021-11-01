@@ -12,6 +12,12 @@ import java.util.List;
 @RequestMapping(value = "/customers")
 public class CustomerController {
 
+    // oud
+    @GetMapping(value = "")
+    public ResponseEntity<Object> getMessage() {
+        return ResponseEntity.ok().body("SECURED REST endpoint: /customers");
+    }
+
     final
     CustomerService customerService;
 
@@ -54,4 +60,8 @@ public class CustomerController {
         Customer customer = customerService.getCustomerByLastName(lastName);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
+
+
+
+
 }

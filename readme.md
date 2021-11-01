@@ -247,3 +247,22 @@ We maken een nieuwe package aan genaamd `exception` met daarin 4 bestanden: `Dat
 ## Stap 13: address
 
 Address invoeren in customer is niet handig, daarom gebruiken we een aparte CustomerBuilder.
+
+## Stap 14: JWT
+
+Ga in Postman naar url `https://localhost:8443/backoffice` met methode `GET`. Je krijgt status `403 forbidden` terug, je hebt geen toegang.
+
+Selecteer methode `POST` en `https://localhost:8443/authenticate`. In de body moeten we een Username en een Password meegeven. Zet hem op `raw` en `JSON` en kopieer de volgende code in de body.
+
+```
+{
+"username": "backoffice",
+"password": "password"
+}
+```
+
+Druk op send en je krijgt een JWT token terug.
+
+Selecteer Bearer Token in `Authorization` en de token die je hebt teruggekregen zet je in het veld Token.
+
+Ga naar url `https://localhost:8443/backoffice` en `GET`. Je hebt toegang gekregen via de token.

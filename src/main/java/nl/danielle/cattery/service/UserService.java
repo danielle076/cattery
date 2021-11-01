@@ -1,25 +1,20 @@
 package nl.danielle.cattery.service;
 
+import nl.danielle.cattery.model.Authority;
 import nl.danielle.cattery.model.User;
-import nl.danielle.cattery.repository.UserRepository;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.Set;
 
-@Service
-public class UserService {
-
-    private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    public User createUser(User user) {
-        return userRepository.save(user);
-    }
+public interface UserService {
+    public abstract String createUser(User user);
+    public abstract void updateUser(String username, User user);
+    public abstract void deleteUser(String username);
+    public abstract Collection<User> getUsers();
+    public abstract Optional<User> getUser(String username);
+    public abstract boolean userExists(String username);
+    public abstract Set<Authority> getAuthorities(String username);
+    public abstract void addAuthority(String username, String authority);
+    public abstract void removeAuthority(String username, String authority);
 }

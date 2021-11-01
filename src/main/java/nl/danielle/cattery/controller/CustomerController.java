@@ -60,8 +60,4 @@ public class CustomerController {
         Customer customer = customerService.getCustomerByLastName(lastName);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
-
-
-
-
 }

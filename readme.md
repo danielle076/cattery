@@ -21,7 +21,7 @@ De zelfstandige naamwoorden voor het idee zijn als volgt.
 
 _Concept klassendiagram_
 
-![img3.png](pictures/img3.png)
+![img10.png](pictures/img10.png)
 
 ![img4.png](pictures/img4.png)
 

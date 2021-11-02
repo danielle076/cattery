@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class UserServiceImpl implements nl.danielle.cattery.service.UserService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
@@ -32,11 +32,6 @@ public class UserServiceImpl implements nl.danielle.cattery.service.UserService 
     }
 
     @Override
-    public boolean userExists(String username) {
-        return userRepository.existsById(username);
-    }
-
-    @Override
     public String createUser(User user) {
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         user.setApikey(randomString);
@@ -45,16 +40,16 @@ public class UserServiceImpl implements nl.danielle.cattery.service.UserService 
     }
 
     @Override
-    public void deleteUser(String username) {
-        userRepository.deleteById(username);
-    }
-
-    @Override
     public void updateUser(String username, User newUser) {
         if (!userRepository.existsById(username)) throw new RecordNotFoundException();
         User user = userRepository.findById(username).get();
         user.setPassword(newUser.getPassword());
         userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(String username) {
+        userRepository.deleteById(username);
     }
 
     @Override

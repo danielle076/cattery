@@ -40,6 +40,7 @@ public class UserController {
         return ResponseEntity.created(location).build();
     }
 
+    // je kan alleen password aanpassen, username niet
     @PutMapping(value = "/{username}")
     public ResponseEntity<Object> updateUser(@PathVariable("username") String username, @RequestBody User user) {
         userService.updateUser(username, user);
@@ -57,6 +58,7 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getAuthorities(username));
     }
 
+    // werkt -- > maar kun je ook overal bij? nee, is ook niet de bedoeling, je kan aanmaken
     @PostMapping(value = "/{username}/authorities")
     public ResponseEntity<Object> addUserAuthority(@PathVariable("username") String username, @RequestBody Map<String, Object> fields) {
         try {

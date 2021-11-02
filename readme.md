@@ -250,7 +250,7 @@ Address invoeren in customer is niet handig, daarom gebruiken we een aparte Cust
 
 ## Stap 14: JWT
 
-Ga in Postman naar url `https://localhost:8443/backoffice` met methode `GET`. Je krijgt status `403 forbidden` terug, je hebt geen toegang.
+Ga in Postman naar url `https://localhost:8443/users` met methode `GET`. Je krijgt status `403 forbidden` terug, je hebt geen toegang.
 
 Selecteer methode `POST` en `https://localhost:8443/authenticate`. In de body moeten we een Username en een Password meegeven. Zet hem op `raw` en `JSON` en kopieer de volgende code in de body.
 
@@ -266,3 +266,52 @@ Druk op send en je krijgt een JWT token terug.
 Selecteer Bearer Token in `Authorization` en de token die je hebt teruggekregen zet je in het veld Token.
 
 Ga naar url `https://localhost:8443/backoffice` en `GET`. Je hebt toegang gekregen via de token.
+
+### SpringSecurityConfig
+
+Rollen:
+- Backoffice
+- Administration Employee
+
+Backoffice `/users/**`
+
+Hij is gemachtigd om de volgende dingen te doen.
+
+GET /users
+getUsers
+
+GET /users/{username}
+getUser
+
+POST /users
+createUser
+
+PUT /users/{username}
+updateUser
+
+DELETE /users/{username}
+deleteUser
+
+GET /users/{username}/authorities
+getUserAuthorities
+
+POST /users/{username}/authorities
+addUserAuthority
+
+DELETE /users/{username}/authorities/{authority}
+deleteUserAuthority
+
+### Kittens
+
+```
+{
+"name": "Freckle",
+"dateBorn": "20",
+"weight": "2.5",
+"nameOfMother": "Danielle",
+"nameOfFather": "Thierry",
+"familyTree": "Something",
+"firstVaccination": "10",
+"secondVaccination": "5"
+}
+```

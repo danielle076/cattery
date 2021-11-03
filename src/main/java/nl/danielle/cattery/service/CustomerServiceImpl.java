@@ -26,23 +26,10 @@ public class CustomerServiceImpl implements CustomerService{
         this.customerRepository = customerRepository;
     }
 
-//    public List<Customer> getCustomers() {
-//        return customerRepository.findAll();
-//    }
-
     @Override
     public Collection<Customer> getCustomers() {
         return customerRepository.findAll();
     }
-
-//    @Override
-//    public Customer getCustomerById(long id) {
-//        if (customerRepository.existsById(id)) {
-//            return customerRepository.findById(id).orElse(null);
-//        } else {
-//            throw new RecordNotFoundException();
-//        }
-//    }
 
     @Override
     public Customer getCustomerById(long id) {
@@ -94,23 +81,10 @@ public class CustomerServiceImpl implements CustomerService{
         }
     }
 
-//    public void deleteCustomer(long id) {
-//        if (customerRepository.existsById(id)) {
-//            customerRepository.deleteById(id);
-//        } else {
-//            throw new RecordNotFoundException();
-//        }
-//    }
-
     @Override
     public void deleteCustomer(long id) {
         customerRepository.deleteById(id);
     }
-//
-//    public Customer getCustomerByLastName(String lastName) {
-//        Customer customer = customerRepository.findByLastNameIgnoreCase(lastName);
-//        return customer;
-//    }
 
     @Override
     public Customer getCustomerByLastName(String lastName) {

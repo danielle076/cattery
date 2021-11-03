@@ -305,13 +305,27 @@ deleteUserAuthority
 
 ```
 {
-"name": "Freckle",
-"dateBorn": "20",
-"weight": "2.5",
-"nameOfMother": "Danielle",
-"nameOfFather": "Thierry",
-"familyTree": "Something",
-"firstVaccination": "10",
-"secondVaccination": "5"
+  "name": "Freckle",
+  "dateBorn": "20",
+  "weight": "2.5",
+  "nameOfMother": "Danielle",
+  "nameOfFather": "Thierry",
+  "familyTree": "Something",
+  "firstVaccination": "10",
+  "secondVaccination": "5"
+}
+```
+
+### Customers
+
+```
+{
+  "firstName": "Heather",
+  "lastName": "Furguson",
+  "dateOfBirth": "1981-02-15",
+  "email": "heather@gmail.com",
+  "phoneNumber": "0612345678",
+  "kids": "2",
+  "otherPets": "1"
 }
 ```

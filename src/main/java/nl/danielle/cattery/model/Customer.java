@@ -46,17 +46,17 @@ public class Customer {
     @Column(name = "other_pets")
     private String otherPets;
 
-//    public Customer(String firstName, String lastName) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//    }
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
 //    public Customer(String firstName, String lastName, String dateOfBirth, String email, int phoneNumber, String kids, String otherPets) {
 //    }
 //
-//    public Customer() {
-//
-//    }
+    public Customer() {
+
+    }
 
     public long getId() {
         return id;
@@ -130,10 +130,10 @@ public class Customer {
         this.otherPets = otherPets;
     }
 
-//    public String getFullName() {
-//        return this.getFirstName() + " " + this.getLastName();
-//    }
-//
+    public String getFullName() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
 //    public int getAge() {
 //        return getAge(LocalDate.now());
 //    }

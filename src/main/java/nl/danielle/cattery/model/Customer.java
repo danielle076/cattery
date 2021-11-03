@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name = "customers")
@@ -25,9 +26,9 @@ public class Customer {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @OneToOne(fetch = FetchType.LAZY,
-            mappedBy = "customer")
-    private Address address;
+//    @OneToOne(fetch = FetchType.LAZY,
+//            mappedBy = "customer")
+//    private Address address;
 
     @NotNull
     @Column
@@ -35,7 +36,7 @@ public class Customer {
 
     @NotNull
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
 
     @NotNull
     @Column
@@ -45,16 +46,17 @@ public class Customer {
     @Column(name = "other_pets")
     private String otherPets;
 
-    public Customer(String firstName, String lastName, String dateOfBirth, String email, int phoneNumber, String kids, String otherPets) {
-    }
+//    public Customer(String firstName, String lastName) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//    }
 
-    public Customer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Customer() {
-    }
+//    public Customer(String firstName, String lastName, String dateOfBirth, String email, int phoneNumber, String kids, String otherPets) {
+//    }
+//
+//    public Customer() {
+//
+//    }
 
     public long getId() {
         return id;
@@ -88,13 +90,13 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public String getEmail() {
         return email;
@@ -104,11 +106,11 @@ public class Customer {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -128,10 +130,10 @@ public class Customer {
         this.otherPets = otherPets;
     }
 
-    public String getFullName() {
-        return this.getFirstName() + " " + this.getLastName();
-    }
-
+//    public String getFullName() {
+//        return this.getFirstName() + " " + this.getLastName();
+//    }
+//
 //    public int getAge() {
 //        return getAge(LocalDate.now());
 //    }

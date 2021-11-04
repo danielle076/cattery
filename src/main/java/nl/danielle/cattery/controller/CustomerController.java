@@ -1,6 +1,7 @@
 package nl.danielle.cattery.controller;
 
 import nl.danielle.cattery.model.Customer;
+import nl.danielle.cattery.payload.RegisterCustomerRequest;
 import nl.danielle.cattery.service.CustomerServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +31,8 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseEntity<Object> createCustomer(@RequestBody Customer customer) {
-        long newId = customerService.createCustomer(customer);
+    public ResponseEntity<Object> createCustomer(@RequestBody RegisterCustomerRequest registerCustomerRequest) {
+        long newId = customerService.createCustomer(registerCustomerRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();

@@ -2,7 +2,11 @@ package nl.danielle.cattery.service;
 
 import nl.danielle.cattery.exceptions.DatabaseErrorException;
 import nl.danielle.cattery.exceptions.RecordNotFoundException;
+import nl.danielle.cattery.model.Address;
 import nl.danielle.cattery.model.Customer;
+import nl.danielle.cattery.model.CustomerBuilder;
+import nl.danielle.cattery.payload.RegisterCustomerRequest;
+import nl.danielle.cattery.repository.AddressRepository;
 import nl.danielle.cattery.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +18,12 @@ public class CustomerServiceImpl implements CustomerService{
     final
     CustomerRepository customerRepository;
 
-//    final
-//    AddressRepository addressRepository;
+    final
+    AddressRepository addressRepository;
 
-//    public CustomerServiceImpl(CustomerRepository customerRepository, AddressRepository addressRepository) {
-//        this.customerRepository = customerRepository;
-//        this.addressRepository = addressRepository;
-//    }
-
-    public CustomerServiceImpl(CustomerRepository customerRepository) {
+    public CustomerServiceImpl(CustomerRepository customerRepository, AddressRepository addressRepository) {
         this.customerRepository = customerRepository;
+        this.addressRepository = addressRepository;
     }
 
     @Override
@@ -40,25 +40,17 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public long createCustomer(Customer customer) {
-        Customer newCustomer = customerRepository.save(customer);
-        return newCustomer.getId();
-    }
+    public long createCustomer(RegisterCustomerRequest registerCustomerRequest) {
 
-//    @Override
-//    public long createCustomer(RegisterCustomerRequest registerCustomerRequest) {
-//
-//        Customer customer = new CustomerBuilder(registerCustomerRequest).buildCustomer();
-//        Address address = new CustomerBuilder(registerCustomerRequest)
-//                .withHousenumberAddition(registerCustomerRequest)
-//                .buildAddress();
-//
-//        Address savedAddress = addressRepository.save(address);
-//        customer.setAddress(savedAddress);
-//        address.setCustomer(customer);
-//
-//        return customerRepository.save(customer).getId();
-//    }
+        Customer customer = new CustomerBuilder(registerCustomerRequest).buildCustomer();
+        Address address = new CustomerBuilder(registerCustomerRequest).buildAddress();
+
+        Address savedAddress = addressRepository.save(address);
+        customer.setAddress(savedAddress);
+        address.setCustomer(customer);
+
+        return customerRepository.save(customer).getId();
+    }
 
     @Override
     public void updateCustomer(long id, Customer customer) {

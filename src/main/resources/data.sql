@@ -18,4 +18,9 @@ VALUES
 INSERT INTO customers (first_name, last_name, date_of_birth, email, phone_number, kids, other_pets)
 VALUES
     ('Danielle', 'van den Akker', '1983-06-28', 'intoyou@gmail.com', '0612345678', '2', '1'),
-    ('Simone', 'Kerseboom', '1981-03-15', 'simone@gmail.com', '0687654321', '0', '3');
+    ('Simone', 'Lageboom', '1981-03-15', 'simone@gmail.com', '0687654321', '0', '3');
+
+INSERT into address (street_name, house_number, postal_code, home_town, customer_id)
+VALUES
+    ('Dorpstraat', '250', '1000AB', 'Amsterdam', 1),
+    ('Laan', '10', '1000AB', 'Utrecht', 2);

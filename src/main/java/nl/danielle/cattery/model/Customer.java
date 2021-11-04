@@ -4,7 +4,6 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 
 @Entity
 @Table(name = "customers")
@@ -26,9 +25,9 @@ public class Customer {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-//    @OneToOne(fetch = FetchType.LAZY,
-//            mappedBy = "customer")
-//    private Address address;
+    @OneToOne(fetch=FetchType.LAZY,
+            mappedBy="customer")
+    private Address address;
 
     @NotNull
     @Column
@@ -51,9 +50,20 @@ public class Customer {
         this.lastName = lastName;
     }
 
-//    public Customer(String firstName, String lastName, String dateOfBirth, String email, int phoneNumber, String kids, String otherPets) {
-//    }
-//
+    public Customer(String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String kids, String otherPets) {
+    }
+
+    public Customer(long id, String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String kids, String otherPets) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.kids = kids;
+        this.otherPets = otherPets;
+    }
+
     public Customer() {
 
     }
@@ -90,13 +100,13 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getEmail() {
         return email;

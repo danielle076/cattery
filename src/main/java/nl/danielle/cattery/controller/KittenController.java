@@ -1,9 +1,13 @@
 package nl.danielle.cattery.controller;
 
 import nl.danielle.cattery.model.Kitten;
+import nl.danielle.cattery.service.FileUploadService;
 import nl.danielle.cattery.service.KittenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -48,5 +52,19 @@ public class KittenController {
     public ResponseEntity<Object> deleteKitten(@PathVariable("id") long id) {
         kittenService.deleteKitten(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @Autowired
+    FileUploadService fileUploadService;
+
+    @PostMapping("/{id}/file-upload")
+    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+
+        fileUploadService.uploadFile(file);
+
+        redirectAttributes.addFlashAttribute("message",
+                "You successfully uploaded " + file.getOriginalFilename() + "!");
+
+        return "redirect:/";
     }
 }

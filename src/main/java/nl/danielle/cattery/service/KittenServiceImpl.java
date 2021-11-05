@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class KittenServiceImpl implements nl.danielle.cattery.service.KittenService {
+public class KittenServiceImpl implements KittenService {
 
-    private final KittenRepository kittenRepository;
+    final KittenRepository kittenRepository;
 
     public KittenServiceImpl(KittenRepository kittenRepository) {
         this.kittenRepository = kittenRepository;

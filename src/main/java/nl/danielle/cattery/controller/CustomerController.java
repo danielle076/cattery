@@ -13,8 +13,7 @@ import java.net.URI;
 @RequestMapping(value = "/customers")
 public class CustomerController {
 
-    final
-    CustomerServiceImpl customerService;
+    final CustomerServiceImpl customerService;
 
     public CustomerController(CustomerServiceImpl customerService) {
         this.customerService = customerService;

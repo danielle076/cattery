@@ -3,7 +3,7 @@ package nl.danielle.cattery.controller;
 import nl.danielle.cattery.model.FileUpload;
 import nl.danielle.cattery.model.Kitten;
 import nl.danielle.cattery.payload.ResponseMessage;
-import nl.danielle.cattery.service.FileStorageService;
+import nl.danielle.cattery.service.FileStorageServiceImpl;
 import nl.danielle.cattery.service.KittenService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,9 +20,9 @@ public class KittenController {
 
     final KittenService kittenService;
 
-    final FileStorageService storageService;
+    final FileStorageServiceImpl storageService;
 
-    public KittenController(KittenService kittenService, FileStorageService storageService) {
+    public KittenController(KittenService kittenService, FileStorageServiceImpl storageService) {
         this.kittenService = kittenService;
         this.storageService = storageService;
     }

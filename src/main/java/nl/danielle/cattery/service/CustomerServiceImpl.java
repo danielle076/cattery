@@ -13,13 +13,11 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
-    final
-    CustomerRepository customerRepository;
+    final CustomerRepository customerRepository;
 
-    final
-    AddressRepository addressRepository;
+    final AddressRepository addressRepository;
 
     public CustomerServiceImpl(CustomerRepository customerRepository, AddressRepository addressRepository) {
         this.customerRepository = customerRepository;

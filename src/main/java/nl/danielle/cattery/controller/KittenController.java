@@ -1,13 +1,15 @@
 package nl.danielle.cattery.controller;
 
+import nl.danielle.cattery.model.FileUpload;
 import nl.danielle.cattery.model.Kitten;
-import nl.danielle.cattery.service.FileUploadService;
+import nl.danielle.cattery.payload.ResponseMessage;
+import nl.danielle.cattery.service.FileStorageService;
 import nl.danielle.cattery.service.KittenService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -16,10 +18,13 @@ import java.net.URI;
 @RequestMapping(value = "/kittens")
 public class KittenController {
 
-    private final KittenService kittenService;
+    final KittenService kittenService;
 
-    public KittenController(KittenService kittenService) {
+    final FileStorageService storageService;
+
+    public KittenController(KittenService kittenService, FileStorageService storageService) {
         this.kittenService = kittenService;
+        this.storageService = storageService;
     }
 
     @GetMapping(value = "")
@@ -54,17 +59,31 @@ public class KittenController {
         return ResponseEntity.noContent().build();
     }
 
-    @Autowired
-    FileUploadService fileUploadService;
+    @PostMapping("/upload/kittenid/{id}")
+    public ResponseEntity<ResponseMessage> uploadFile(@PathVariable long id, @RequestParam("file") MultipartFile file) {
 
-    @PostMapping("/{id}/file-upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+        try {
+            storageService.store(file, id);
 
-        fileUploadService.uploadFile(file);
+            String message = "Uploaded the file successfully: " + file.getOriginalFilename();
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
 
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+        } catch (Exception e) {
+            String message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+        }
+    }
 
-        return "redirect:/";
+    // ga naar https://localhost:8443/kittens/
+    // kopieer id van fileupload
+    // ga naar https://localhost:8443/kittens/download/ zet id van fileupload achter /
+    // save response op als file en zet er .jpg achter de naam
+    @GetMapping("/download/{id}")
+    public ResponseEntity<byte[]> getFileById(@PathVariable("id") String id) {
+        FileUpload fileUpload = storageService.getFileById(id);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileUpload.getName() + "\"")
+                .body(fileUpload.getData());
     }
 }

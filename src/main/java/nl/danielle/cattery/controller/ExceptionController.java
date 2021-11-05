@@ -24,9 +24,4 @@ public class ExceptionController {
     public ResponseEntity<Object> exception(UsernameNotFoundException exception) {
         return ResponseEntity.badRequest().build();
     }
-
-    @ExceptionHandler(value = FileStorageException.class)
-    public ResponseEntity<Object> exception(FileStorageException exception) {
-        return ResponseEntity.badRequest().build();
-    }
 }

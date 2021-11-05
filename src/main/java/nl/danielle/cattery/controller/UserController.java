@@ -58,7 +58,7 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getAuthorities(username));
     }
 
-    // werkt -- > maar kun je ook overal bij? nee, is ook niet de bedoeling, je kan aanmaken
+    // werkt -- > maar kun je ook overal bij? Ja, maar je moet wel zowel rol backoffice als rol user toevoegen
     @PostMapping(value = "/{username}/authorities")
     public ResponseEntity<Object> addUserAuthority(@PathVariable("username") String username, @RequestBody Map<String, Object> fields) {
         try {

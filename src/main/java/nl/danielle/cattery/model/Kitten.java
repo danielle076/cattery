@@ -41,6 +41,9 @@ public class Kitten {
     @Column(name = "second_vaccination")
     private int secondVaccination;
 
+    @OneToOne(mappedBy = "kitten")
+    private FileUpload fileUpload;
+
     public long getId() {
         return id;
     }
@@ -111,5 +114,13 @@ public class Kitten {
 
     public void setSecondVaccination(int secondVaccination) {
         this.secondVaccination = secondVaccination;
+    }
+
+    public FileUpload getFileUpload() {
+        return fileUpload;
+    }
+
+    public void setFileUpload(FileUpload fileUpload) {
+        this.fileUpload = fileUpload;
     }
 }

@@ -273,33 +273,15 @@ Rollen:
 - Backoffice
 - Administration Employee
 
-Backoffice `/users/**`
+### Users
 
-Hij is gemachtigd om de volgende dingen te doen.
+{
+"username": "danielle",
+"password": "$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica",
+"enabled": true
+}
 
-GET /users
-getUsers
-
-GET /users/{username}
-getUser
-
-POST /users
-createUser
-
-PUT /users/{username}
-updateUser
-
-DELETE /users/{username}
-deleteUser
-
-GET /users/{username}/authorities
-getUserAuthorities
-
-POST /users/{username}/authorities
-addUserAuthority
-
-DELETE /users/{username}/authorities/{authority}
-deleteUserAuthority
+Bij het toevoegen van de rollen, zowel user als backoffice toevoegen, zodat je overal toegang tot hebt voor de backoffice rol.
 
 ### Kittens
 

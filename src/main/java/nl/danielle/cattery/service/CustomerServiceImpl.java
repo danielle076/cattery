@@ -38,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public long createCustomer(RegisterCustomerRequest registerCustomerRequest) {
+    public long createAddress(RegisterCustomerRequest registerCustomerRequest) {
 
         Customer customer = new CustomerBuilder(registerCustomerRequest).buildCustomer();
         Address address = new CustomerBuilder(registerCustomerRequest).buildAddress();

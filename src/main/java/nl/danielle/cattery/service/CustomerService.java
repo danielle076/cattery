@@ -8,7 +8,7 @@ import java.util.Collection;
 public interface CustomerService {
     Collection<Customer> getCustomers();
     Customer getCustomerById(long id);
-    long createCustomer(RegisterCustomerRequest registerCustomerRequest);
+    long createAddress(RegisterCustomerRequest registerCustomerRequest);
     void updateCustomer(long id, Customer customer);
     void deleteCustomer(long id);
     Customer getCustomerByLastName(String lastName);

@@ -10,10 +10,10 @@ VALUES ('backoffice', 'ROLE_USER');
 INSERT INTO authorities (username, authority)
 VALUES ('backoffice', 'ROLE_BACKOFFICE');
 
-INSERT INTO kittens (name, date_born, weight, name_of_mother, name_of_father, family_tree, first_vaccination, second_vaccination)
+INSERT INTO kittens (name, date_of_birth, weight, breed, first_vaccination, second_vaccination)
 VALUES
-('Frizzle', '15', '0.5', 'Danielle', 'Thierry', 'Okay', '2', '7'),
-('Frummel', '10', '1.5', 'Danielle', 'Thierry', 'Hello', '3', '5');
+('Frizzle', '2021-05-26', '0.5', 'Heilige Birmaan', 'yes', 'no'),
+('Frummel', '2021-03-09', '1.5', 'Siamees', 'no', 'no');
 
 INSERT INTO customers (first_name, last_name, date_of_birth, email, phone_number, kids, other_pets)
 VALUES

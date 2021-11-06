@@ -42,11 +42,9 @@ public class KittenServiceImpl implements KittenService {
             try {
                 Kitten existingKitten = kittenRepository.findById(id).orElse(null);
                 existingKitten.setName(kitten.getName());
-                existingKitten.setDateBorn(kitten.getDateBorn());
+                existingKitten.setDateOfBirth(kitten.getDateOfBirth());
                 existingKitten.setWeight(kitten.getWeight());
-                existingKitten.setNameOfMother(kitten.getNameOfMother());
-                existingKitten.setNameOfFather(kitten.getNameOfFather());
-                existingKitten.setFamilyTree(kitten.getFamilyTree());
+                existingKitten.setBreed(kitten.getBreed());
                 existingKitten.setFirstVaccination(kitten.getFirstVaccination());
                 existingKitten.setSecondVaccination(kitten.getSecondVaccination());
                 kittenRepository.save(existingKitten);

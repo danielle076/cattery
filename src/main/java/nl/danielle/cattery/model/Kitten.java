@@ -3,6 +3,7 @@ package nl.danielle.cattery.model;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "kittens")
@@ -16,30 +17,22 @@ public class Kitten {
     private String name;
 
     @NotNull
-    @Column(name = "date_born")
-    private int dateBorn;
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
 
     @NotNull
     @Column
     private double weight;
 
     @NotNull
-    @Column(name = "name_of_mother")
-    private String nameOfMother;
-
-    @NotNull
-    @Column(name = "name_of_father")
-    private String nameOfFather;
-
-    @NotNull
-    @Column(name = "family_tree")
-    private String familyTree;
+    @Column(name = "breed")
+    private String breed;
 
     @Column(name = "first_vaccination")
-    private int firstVaccination;
+    private String firstVaccination;
 
     @Column(name = "second_vaccination")
-    private int secondVaccination;
+    private String secondVaccination;
 
     @OneToOne(mappedBy = "kitten")
     private FileUpload fileUpload;
@@ -60,12 +53,12 @@ public class Kitten {
         this.name = name;
     }
 
-    public int getDateBorn() {
-        return dateBorn;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDateBorn(int dateBorn) {
-        this.dateBorn = dateBorn;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public double getWeight() {
@@ -76,43 +69,27 @@ public class Kitten {
         this.weight = weight;
     }
 
-    public String getNameOfMother() {
-        return nameOfMother;
+    public String getBreed() {
+        return breed;
     }
 
-    public void setNameOfMother(String nameOfMother) {
-        this.nameOfMother = nameOfMother;
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
-    public String getNameOfFather() {
-        return nameOfFather;
-    }
-
-    public void setNameOfFather(String nameOfFather) {
-        this.nameOfFather = nameOfFather;
-    }
-
-    public String getFamilyTree() {
-        return familyTree;
-    }
-
-    public void setFamilyTree(String familyTree) {
-        this.familyTree = familyTree;
-    }
-
-    public int getFirstVaccination() {
+    public String getFirstVaccination() {
         return firstVaccination;
     }
 
-    public void setFirstVaccination(int firstVaccination) {
+    public void setFirstVaccination(String firstVaccination) {
         this.firstVaccination = firstVaccination;
     }
 
-    public int getSecondVaccination() {
+    public String getSecondVaccination() {
         return secondVaccination;
     }
 
-    public void setSecondVaccination(int secondVaccination) {
+    public void setSecondVaccination(String secondVaccination) {
         this.secondVaccination = secondVaccination;
     }
 

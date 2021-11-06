@@ -24,3 +24,11 @@ INSERT into address (street_name, house_number, postal_code, home_town, customer
 VALUES
     ('Dorpstraat', '250', '1000AB', 'Amsterdam', 1),
     ('Laan', '10', '1000AB', 'Utrecht', 2);
+
+INSERT INTO catpart (description, price)
+VALUES
+    ('Heilige Birmaan', 800),
+    ('Siamees', 750),
+    ('Ragdoll', 950),
+    ('Eerste vaccinatie', 29.50),
+    ('Tweede vaccinatie', 24.35);

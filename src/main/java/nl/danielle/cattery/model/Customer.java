@@ -38,8 +38,8 @@ public class Customer {
     private String phoneNumber;
 
     @NotNull
-    @Column
-    private String kids;
+    @Column(name = "which_breed")
+    private String whichBreed;
 
     @NotNull
     @Column(name = "other_pets")
@@ -50,17 +50,17 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Customer(String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String kids, String otherPets) {
+    public Customer(String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String whichBreed, String otherPets) {
     }
 
-    public Customer(long id, String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String kids, String otherPets) {
+    public Customer(long id, String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String whichBreed, String otherPets) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.kids = kids;
+        this.whichBreed = whichBreed;
         this.otherPets = otherPets;
     }
 
@@ -124,12 +124,12 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getKids() {
-        return kids;
+    public String getWhichBreed() {
+        return whichBreed;
     }
 
-    public void setKids(String kids) {
-        this.kids = kids;
+    public void setWhichBreed(String whichBreed) {
+        this.whichBreed = whichBreed;
     }
 
     public String getOtherPets() {

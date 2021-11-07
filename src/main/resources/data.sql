@@ -12,13 +12,13 @@ VALUES ('backoffice', 'ROLE_BACKOFFICE');
 
 INSERT INTO kittens (name, date_of_birth, weight, breed, first_vaccination, second_vaccination)
 VALUES
-('Frizzle', '2021-05-26', '0.5', 'Heilige Birmaan', 'yes', 'no'),
-('Frummel', '2021-03-09', '1.5', 'Siamees', 'no', 'no');
+('Frizzle', '2021-05-26', '0.5', 'Birman', 'yes', 'no'),
+('Frummel', '2021-03-09', '1.5', 'Siamese', 'no', 'no');
 
-INSERT INTO customers (first_name, last_name, date_of_birth, email, phone_number, kids, other_pets)
+INSERT INTO customers (first_name, last_name, date_of_birth, email, phone_number, which_breed, other_pets)
 VALUES
-    ('Danielle', 'van den Akker', '1983-06-28', 'intoyou@gmail.com', '0612345678', '2', '1'),
-    ('Simone', 'Lageboom', '1981-03-15', 'simone@gmail.com', '0687654321', '0', '3');
+    ('Danielle', 'van den Akker', '1983-06-28', 'intoyou@gmail.com', '0612345678', 'Birman', 'Cat'),
+    ('Simone', 'Lageboom', '1981-03-15', 'simone@gmail.com', '0687654321', 'Ragdoll', 'Dog, cat');
 
 INSERT into address (street_name, house_number, postal_code, home_town, customer_id)
 VALUES
@@ -27,8 +27,8 @@ VALUES
 
 INSERT INTO catpart (description, price)
 VALUES
-    ('Heilige Birmaan', 800),
-    ('Siamees', 750),
+    ('Birman', 800),
+    ('Siamese', 750),
     ('Ragdoll', 950),
     ('Eerste vaccinatie', 29.50),
     ('Tweede vaccinatie', 24.35);

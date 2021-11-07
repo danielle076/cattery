@@ -60,7 +60,7 @@ public class CustomerServiceImpl implements CustomerService {
                 existingCustomer.setDateOfBirth(customer.getDateOfBirth());
                 existingCustomer.setEmail(customer.getEmail());
                 existingCustomer.setPhoneNumber(customer.getPhoneNumber());
-                existingCustomer.setKids(customer.getKids());
+                existingCustomer.setWhichBreed(customer.getWhichBreed());
                 existingCustomer.setOtherPets(customer.getOtherPets());
                 customerRepository.save(existingCustomer);
             } catch (Exception e) {

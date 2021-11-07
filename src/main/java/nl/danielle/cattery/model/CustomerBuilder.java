@@ -12,7 +12,7 @@ public class CustomerBuilder {
     private LocalDate dateOfBirth;
     private String email;
     private String phoneNumber;
-    private String kids;
+    private String whichBreed;
     private String otherPets;
 
     //Address
@@ -27,7 +27,7 @@ public class CustomerBuilder {
         this.dateOfBirth = registerCustomerRequest.getDateOfBirth();
         this.email = registerCustomerRequest.getEmail();
         this.phoneNumber = registerCustomerRequest.getPhoneNumber();
-        this.kids = registerCustomerRequest.getKids();
+        this.whichBreed = registerCustomerRequest.getWhichBreed();
         this.otherPets = registerCustomerRequest.getOtherPets();
         this.streetName = registerCustomerRequest.getStreetName();
         this.houseNumber = registerCustomerRequest.getHouseNumber();
@@ -36,7 +36,7 @@ public class CustomerBuilder {
     }
 
     public Customer buildCustomer(){
-        return new Customer(firstName, lastName, dateOfBirth, email, phoneNumber, kids, otherPets);
+        return new Customer(firstName, lastName, dateOfBirth, email, phoneNumber, whichBreed, otherPets);
     }
 
     public Address buildAddress(){

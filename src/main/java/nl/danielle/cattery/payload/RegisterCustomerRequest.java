@@ -18,7 +18,7 @@ public class RegisterCustomerRequest {
     @NotNull
     private String phoneNumber;
     @NotNull
-    private String kids;
+    private String whichBreed;
     @NotNull
     private String otherPets;
 
@@ -72,12 +72,12 @@ public class RegisterCustomerRequest {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getKids() {
-        return kids;
+    public String getWhichBreed() {
+        return whichBreed;
     }
 
-    public void setKids(String kids) {
-        this.kids = kids;
+    public void setWhichBreed(String whichBreed) {
+        this.whichBreed = whichBreed;
     }
 
     public String getOtherPets() {

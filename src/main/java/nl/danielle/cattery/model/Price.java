@@ -80,7 +80,7 @@ public class Price {
         this.kitten = kitten;
     }
 
-    public String getPrice() {
-        return this.getBreedPrice() + " " + this.getFirstVaccinationPrice() + " " + this.getSecondVaccinationPrice();
+    public Double getTotalPrice() {
+        return this.getBreedPrice() + this.getFirstVaccinationPrice() + this.getSecondVaccinationPrice();
     }
 }

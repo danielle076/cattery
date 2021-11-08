@@ -55,7 +55,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/kittens/**").hasRole("BACKOFFICE")
                 .antMatchers("/customers/**").hasRole("BACKOFFICE")
                 .antMatchers("/catparts/**").hasRole("BACKOFFICE")
-                .antMatchers("/customers/**").hasRole("USER")
+                .antMatchers("/customers/add").hasRole("USER")
                 .antMatchers("/kittens/add").hasRole("USER")
                 .antMatchers("/authenticated").authenticated()
                 .antMatchers("/authenticate").permitAll()

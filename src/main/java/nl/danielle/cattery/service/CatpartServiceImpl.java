@@ -17,18 +17,23 @@ public class CatpartServiceImpl implements CatpartService {
         this.catpartRepository = catpartRepository;
     }
 
-    public List<Catpart> getAllCatParts() {
+    public List<Catpart> getCatparts() {
         return catpartRepository.findAll();
     }
 
     @Override
-    public Catpart getCatPartById(long id) {
+    public Catpart getCatpartById(long id) {
 
         if (catpartRepository.existsById(id)) {
             return catpartRepository.findById(id).orElse(null);
         } else {
             throw new RecordNotFoundException();
         }
+    }
+
+    @Override
+    public long saveCatpart(Catpart catpart) {
+        return catpartRepository.save(catpart).getId();
     }
 
     @Override
@@ -46,11 +51,6 @@ public class CatpartServiceImpl implements CatpartService {
             throw new RecordNotFoundException();
         }
         return catpart;
-    }
-
-    @Override
-    public long saveCatpart(Catpart catPart) {
-        return catpartRepository.save(catPart).getId();
     }
 
     @Override

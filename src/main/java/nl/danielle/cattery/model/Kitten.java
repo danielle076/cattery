@@ -37,8 +37,8 @@ public class Kitten {
     @OneToOne(mappedBy = "kitten")
     private FileUpload fileUpload;
 
-    @OneToOne(fetch=FetchType.LAZY,
-            mappedBy="kitten")
+    @OneToOne(fetch = FetchType.LAZY,
+            mappedBy = "kitten")
     private Price price;
 
     public Kitten(String name, LocalDate dateOfBirth, double weight, String breed, String firstVaccination, String secondVaccination) {
@@ -119,6 +119,4 @@ public class Kitten {
     public void setPrice(Price price) {
         this.price = price;
     }
-
-
 }

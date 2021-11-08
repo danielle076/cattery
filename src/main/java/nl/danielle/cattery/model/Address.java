@@ -2,10 +2,11 @@ package nl.danielle.cattery.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "address")
+@Table(name = "addresses")
 public class Address {
 
     @Id

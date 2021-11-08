@@ -31,12 +31,11 @@ public class KittenBuilder {
         this.secondVaccinationPrice = kittenRequest.getSecondVaccinationPrice();
     }
 
-    public Kitten buildKitten(){
+    public Kitten buildKitten() {
         return new Kitten(name, dateOfBirth, weight, breed, firstVaccination, secondVaccination);
     }
 
-    public Price buildPrice(){
+    public Price buildPrice() {
         return new Price(breedPrice, firstVaccinationPrice, secondVaccinationPrice);
     }
-
 }

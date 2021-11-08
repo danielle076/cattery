@@ -25,8 +25,8 @@ public class Customer {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @OneToOne(fetch=FetchType.LAZY,
-            mappedBy="customer")
+    @OneToOne(fetch = FetchType.LAZY,
+            mappedBy = "customer")
     private Address address;
 
     @NotNull
@@ -138,10 +138,6 @@ public class Customer {
 
     public void setOtherPets(String otherPets) {
         this.otherPets = otherPets;
-    }
-
-    public String getFullName() {
-        return this.getFirstName() + " " + this.getLastName();
     }
 
 //    public int getAge() {

@@ -4,7 +4,7 @@ import com.sun.istack.NotNull;
 
 import java.time.LocalDate;
 
-public class RegisterCustomerRequest {
+public class CustomerRequest {
 
     //Customer
     @NotNull

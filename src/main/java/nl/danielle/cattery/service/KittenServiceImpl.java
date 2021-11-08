@@ -37,12 +37,6 @@ public class KittenServiceImpl implements KittenService {
         return kittenRepository.findById(id).orElse(null);
     }
 
-//    @Override
-//    public long saveKitten(Kitten kitten) {
-//        Kitten newKitten = kittenRepository.save(kitten);
-//        return newKitten.getId();
-//    }
-
     @Override
     public long saveKitten(KittenRequest kittenRequest) {
 

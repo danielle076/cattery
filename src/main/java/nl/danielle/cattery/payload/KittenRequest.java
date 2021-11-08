@@ -1,7 +1,6 @@
 package nl.danielle.cattery.payload;
 
 import com.sun.istack.NotNull;
-import nl.danielle.cattery.model.FileUpload;
 
 import java.time.LocalDate;
 

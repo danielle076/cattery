@@ -5,7 +5,7 @@ import nl.danielle.cattery.exceptions.RecordNotFoundException;
 import nl.danielle.cattery.model.Address;
 import nl.danielle.cattery.model.Customer;
 import nl.danielle.cattery.model.CustomerBuilder;
-import nl.danielle.cattery.payload.RegisterCustomerRequest;
+import nl.danielle.cattery.payload.CustomerRequest;
 import nl.danielle.cattery.repository.AddressRepository;
 import nl.danielle.cattery.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -38,10 +38,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public long createAddress(RegisterCustomerRequest registerCustomerRequest) {
+    public long createAddress(CustomerRequest customerRequest) {
 
-        Customer customer = new CustomerBuilder(registerCustomerRequest).buildCustomer();
-        Address address = new CustomerBuilder(registerCustomerRequest).buildAddress();
+        Customer customer = new CustomerBuilder(customerRequest).buildCustomer();
+        Address address = new CustomerBuilder(customerRequest).buildAddress();
 
         Address savedAddress = addressRepository.save(address);
         customer.setAddress(savedAddress);

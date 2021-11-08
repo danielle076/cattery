@@ -2,6 +2,7 @@ package nl.danielle.cattery.controller;
 
 import nl.danielle.cattery.model.FileUpload;
 import nl.danielle.cattery.model.Kitten;
+import nl.danielle.cattery.payload.KittenRequest;
 import nl.danielle.cattery.payload.ResponseMessage;
 import nl.danielle.cattery.service.FileStorageServiceImpl;
 import nl.danielle.cattery.service.KittenService;
@@ -38,8 +39,8 @@ public class KittenController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseEntity<Object> saveKitten(@RequestBody Kitten kitten) {
-        long newId = kittenService.saveKitten(kitten);
+    public ResponseEntity<Object> saveKitten(@RequestBody KittenRequest kittenRequest) {
+        long newId = kittenService.saveKitten(kittenRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();

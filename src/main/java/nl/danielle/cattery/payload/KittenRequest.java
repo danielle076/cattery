@@ -1,60 +1,28 @@
-package nl.danielle.cattery.model;
+package nl.danielle.cattery.payload;
 
 import com.sun.istack.NotNull;
+import nl.danielle.cattery.model.FileUpload;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "kittens")
-public class Kitten {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
+public class KittenRequest {
+    //Kitten
     @NotNull
     private String name;
-
     @NotNull
-    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-
     @NotNull
-    @Column
     private double weight;
-
     @NotNull
-    @Column(name = "breed")
     private String breed;
-
-    @Column(name = "first_vaccination")
     private String firstVaccination;
-
-    @Column(name = "second_vaccination")
     private String secondVaccination;
 
-    @OneToOne(mappedBy = "kitten")
-    private FileUpload fileUpload;
-
-    @OneToOne(fetch=FetchType.LAZY,
-            mappedBy="kitten")
-    private Price price;
-
-    public Kitten(String name, LocalDate dateOfBirth, double weight, String breed, String firstVaccination, String secondVaccination) {
-    }
-
-    public Kitten() {
-
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    //Price
+    @NotNull
+    private double breedPrice;
+    private double firstVaccinationPrice;
+    private double secondVaccinationPrice;
 
     public String getName() {
         return name;
@@ -104,21 +72,27 @@ public class Kitten {
         this.secondVaccination = secondVaccination;
     }
 
-    public FileUpload getFileUpload() {
-        return fileUpload;
+    public double getBreedPrice() {
+        return breedPrice;
     }
 
-    public void setFileUpload(FileUpload fileUpload) {
-        this.fileUpload = fileUpload;
+    public void setBreedPrice(double breedPrice) {
+        this.breedPrice = breedPrice;
     }
 
-    public Price getPrice() {
-        return price;
+    public double getFirstVaccinationPrice() {
+        return firstVaccinationPrice;
     }
 
-    public void setPrice(Price price) {
-        this.price = price;
+    public void setFirstVaccinationPrice(double firstVaccinationPrice) {
+        this.firstVaccinationPrice = firstVaccinationPrice;
     }
 
+    public double getSecondVaccinationPrice() {
+        return secondVaccinationPrice;
+    }
 
+    public void setSecondVaccinationPrice(double secondVaccinationPrice) {
+        this.secondVaccinationPrice = secondVaccinationPrice;
+    }
 }

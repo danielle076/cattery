@@ -45,16 +45,12 @@ public class Customer {
     @Column(name = "other_pets")
     private String otherPets;
 
-    public Customer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+//    public Customer(String firstName, String lastName) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//    }
 
     public Customer(String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String whichBreed, String otherPets) {
-    }
-
-    public Customer(long id, String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String whichBreed, String otherPets) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;

@@ -29,16 +29,21 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAll();
     }
 
+//    @Override
+//    public Customer getCustomerById(long id) {
+//        if (!customerRepository.existsById(id)) {
+//            throw new RecordNotFoundException();
+//        }
+//        return customerRepository.findById(id).orElse(null);
+//    }
+
     @Override
     public Customer getCustomerById(long id) {
-        if (!customerRepository.existsById(id)) {
-            throw new RecordNotFoundException();
-        }
-        return customerRepository.findById(id).orElse(null);
+        return customerRepository.findById(id).orElseThrow(() -> new RecordNotFoundException());
     }
 
     @Override
-    public long createAddress(CustomerRequest customerRequest) {
+    public long createCustomer(CustomerRequest customerRequest) {
 
         Customer customer = new CustomerBuilder(customerRequest).buildCustomer();
         Address address = new CustomerBuilder(customerRequest).buildAddress();
@@ -51,18 +56,24 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateCustomer(long id, Customer customer) {
+    public void updateCustomer(long id, CustomerRequest customerrequest) {
         if (customerRepository.existsById(id)) {
             try {
                 Customer existingCustomer = customerRepository.findById(id).orElse(null);
-                existingCustomer.setFirstName(customer.getFirstName());
-                existingCustomer.setLastName(customer.getLastName());
-                existingCustomer.setDateOfBirth(customer.getDateOfBirth());
-                existingCustomer.setEmail(customer.getEmail());
-                existingCustomer.setPhoneNumber(customer.getPhoneNumber());
-                existingCustomer.setWhichBreed(customer.getWhichBreed());
-                existingCustomer.setOtherPets(customer.getOtherPets());
+                Address existingAddress = addressRepository.findById(id).orElse(null);
+                existingCustomer.setFirstName(customerrequest.getFirstName());
+                existingCustomer.setLastName(customerrequest.getLastName());
+                existingCustomer.setDateOfBirth(customerrequest.getDateOfBirth());
+                existingCustomer.setEmail(customerrequest.getEmail());
+                existingCustomer.setPhoneNumber(customerrequest.getPhoneNumber());
+                existingCustomer.setWhichBreed(customerrequest.getWhichBreed());
+                existingCustomer.setOtherPets(customerrequest.getOtherPets());
+                existingAddress.setStreetName(customerrequest.getStreetName());
+                existingAddress.setHouseNumber(customerrequest.getHouseNumber());
+                existingAddress.setPostalCode(customerrequest.getPostalCode());
+                existingAddress.setHomeTown(customerrequest.getHomeTown());
                 customerRepository.save(existingCustomer);
+                addressRepository.save(existingAddress);
             } catch (Exception e) {
                 throw new DatabaseErrorException();
             }
@@ -71,9 +82,20 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
+//    @Override
+//    public void deleteCustomer(long id) {
+//        customerRepository.deleteById(id);
+//    }
+
     @Override
     public void deleteCustomer(long id) {
-        customerRepository.deleteById(id);
+        if (customerRepository.existsById(id)) {
+            customerRepository.deleteById(id);
+            addressRepository.deleteById(id);
+
+        } else {
+            throw new RecordNotFoundException();
+        }
     }
 
     @Override

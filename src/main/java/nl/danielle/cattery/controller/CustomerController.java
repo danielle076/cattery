@@ -31,7 +31,7 @@ public class CustomerController {
 
     @PostMapping(value = "/add")
     public ResponseEntity<Object> createAddress(@RequestBody CustomerRequest customerRequest) {
-        long newId = customerService.createAddress(customerRequest);
+        long newId = customerService.createCustomer(customerRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();
@@ -40,15 +40,15 @@ public class CustomerController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
-        customerService.updateCustomer(id, customer);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Object> updateCustomer(@PathVariable("id") long id, @RequestBody CustomerRequest customerRequest) {
+        customerService.updateCustomer(id, customerRequest);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteCustomer(@PathVariable("id") long id) {
         customerService.deleteCustomer(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping(value = "/lastname/{lastname}")

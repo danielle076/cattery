@@ -8,8 +8,8 @@ import java.util.Collection;
 public interface CustomerService {
     Collection<Customer> getCustomers();
     Customer getCustomerById(long id);
-    long createAddress(CustomerRequest customerRequest);
-    void updateCustomer(long id, Customer customer);
+    long createCustomer(CustomerRequest customerRequest);
+    void updateCustomer(long id, CustomerRequest customerrequest);
     void deleteCustomer(long id);
     Customer getCustomerByLastName(String lastName);
 }

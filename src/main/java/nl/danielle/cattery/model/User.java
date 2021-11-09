@@ -18,9 +18,6 @@ public class User {
     @Column(nullable = false)
     private boolean enabled = true;
 
-    @Column
-    private String apikey;
-
     @OneToMany(
             targetEntity = nl.danielle.cattery.model.Authority.class,
             mappedBy = "username",
@@ -51,14 +48,6 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public String getApikey() {
-        return apikey;
-    }
-
-    public void setApikey(String apikey) {
-        this.apikey = apikey;
     }
 
     public Set<Authority> getAuthorities() {

@@ -31,37 +31,39 @@ public class KittenServiceImpl implements KittenService {
 
     @Override
     public Kitten getKittenById(long id) {
-        if (!kittenRepository.existsById(id)) {
-            throw new RecordNotFoundException();
-        }
-        return kittenRepository.findById(id).orElse(null);
+        return kittenRepository.findById(id).orElseThrow(() -> new RecordNotFoundException());
     }
 
     @Override
     public long saveKitten(KittenRequest kittenRequest) {
 
-        Kitten kitten = new KittenBuilder(kittenRequest).buildKitten();
-        Price price = new KittenBuilder(kittenRequest).buildPrice();
+        Kitten newKitten = new KittenBuilder(kittenRequest).buildKitten();
+        Price newPrice = new KittenBuilder(kittenRequest).buildPrice();
 
-        Price savedPrice = priceRepository.save(price);
-        kitten.setPrice(savedPrice);
-        price.setKitten(kitten);
+        Price savedPrice = priceRepository.save(newPrice);
+        newKitten.setPrice(savedPrice);
+        newPrice.setKitten(newKitten);
 
-        return kittenRepository.save(kitten).getId();
+        return kittenRepository.save(newKitten).getId();
     }
 
     @Override
-    public void updateKitten(long id, Kitten kitten) {
+    public void updateKitten(long id, KittenRequest kittenRequest) {
         if (kittenRepository.existsById(id)) {
             try {
                 Kitten existingKitten = kittenRepository.findById(id).orElse(null);
-                existingKitten.setName(kitten.getName());
-                existingKitten.setDateOfBirth(kitten.getDateOfBirth());
-                existingKitten.setWeight(kitten.getWeight());
-                existingKitten.setBreed(kitten.getBreed());
-                existingKitten.setFirstVaccination(kitten.getFirstVaccination());
-                existingKitten.setSecondVaccination(kitten.getSecondVaccination());
+                Price existingPrice = priceRepository.findById(id).orElse(null);
+                existingKitten.setName(kittenRequest.getName());
+                existingKitten.setDateOfBirth(kittenRequest.getDateOfBirth());
+                existingKitten.setWeight(kittenRequest.getWeight());
+                existingKitten.setBreed(kittenRequest.getBreed());
+                existingKitten.setFirstVaccination(kittenRequest.getFirstVaccination());
+                existingKitten.setSecondVaccination(kittenRequest.getSecondVaccination());
+                existingPrice.setBreedPrice(kittenRequest.getBreedPrice());
+                existingPrice.setFirstVaccinationPrice(kittenRequest.getFirstVaccinationPrice());
+                existingPrice.setSecondVaccinationPrice(kittenRequest.getSecondVaccinationPrice());
                 kittenRepository.save(existingKitten);
+                priceRepository.save(existingPrice);
             } catch (Exception ex) {
                 throw new DatabaseErrorException();
             }
@@ -72,7 +74,12 @@ public class KittenServiceImpl implements KittenService {
 
     @Override
     public void deleteKitten(long id) {
-        kittenRepository.deleteById(id);
+        if (kittenRepository.existsById(id)) {
+            kittenRepository.deleteById(id);
+            priceRepository.deleteById(id);
+
+        } else {
+            throw new RecordNotFoundException();
+        }
     }
 }
-

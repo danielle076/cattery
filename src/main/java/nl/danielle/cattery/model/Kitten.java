@@ -42,6 +42,12 @@ public class Kitten {
     private Price price;
 
     public Kitten(String name, LocalDate dateOfBirth, double weight, String breed, String firstVaccination, String secondVaccination) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.weight = weight;
+        this.breed = breed;
+        this.firstVaccination = firstVaccination;
+        this.secondVaccination = secondVaccination;
     }
 
     public Kitten() {

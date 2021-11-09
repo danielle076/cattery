@@ -5,7 +5,6 @@ import com.sun.istack.NotNull;
 import java.time.LocalDate;
 
 public class KittenRequest {
-    //Kitten
     @NotNull
     private String name;
     @NotNull
@@ -16,8 +15,6 @@ public class KittenRequest {
     private String breed;
     private String firstVaccination;
     private String secondVaccination;
-
-    //Price
     @NotNull
     private double breedPrice;
     private double firstVaccinationPrice;

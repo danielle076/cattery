@@ -5,7 +5,6 @@ import nl.danielle.cattery.exceptions.UsernameNotFoundException;
 import nl.danielle.cattery.model.Authority;
 import nl.danielle.cattery.model.User;
 import nl.danielle.cattery.repository.UserRepository;
-import nl.danielle.cattery.utils.RandomStringGenerator;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -33,8 +32,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String createUser(User user) {
-        String randomString = RandomStringGenerator.generateAlphaNumeric(20);
-        user.setApikey(randomString);
         User newUser = userRepository.save(user);
         return newUser.getUsername();
     }

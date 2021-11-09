@@ -6,15 +6,12 @@ import java.time.LocalDate;
 
 public class KittenBuilder {
 
-    //Kitten
     private String name;
     private LocalDate dateOfBirth;
     private double weight;
     private String breed;
     private String firstVaccination;
     private String secondVaccination;
-
-    //Price
     private double breedPrice;
     private double firstVaccinationPrice;
     private double secondVaccinationPrice;

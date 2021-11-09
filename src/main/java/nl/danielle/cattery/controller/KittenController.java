@@ -1,7 +1,6 @@
 package nl.danielle.cattery.controller;
 
 import nl.danielle.cattery.model.FileUpload;
-import nl.danielle.cattery.model.Kitten;
 import nl.danielle.cattery.payload.KittenRequest;
 import nl.danielle.cattery.payload.ResponseMessage;
 import nl.danielle.cattery.service.FileStorageServiceImpl;
@@ -49,15 +48,15 @@ public class KittenController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateKitten(@PathVariable("id") long id, @RequestBody Kitten kitten) {
-        kittenService.updateKitten(id, kitten);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Object> updateKitten(@PathVariable("id") long id, @RequestBody KittenRequest kittenRequest) {
+        kittenService.updateKitten(id, kittenRequest);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteKitten(@PathVariable("id") long id) {
         kittenService.deleteKitten(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/upload/kittenid/{id}")

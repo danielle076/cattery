@@ -12,11 +12,11 @@ VALUES ('backoffice', 'ROLE_BACKOFFICE');
 
 INSERT INTO kittens (name, date_of_birth, weight, breed, first_vaccination, second_vaccination)
 VALUES ('Frizzle', '2021-05-26', '0.5', 'Birman', 'yes', 'no'),
-       ('Frummel', '2021-03-09', '1.5', 'Siamese', 'no', 'no');
+       ('Frummel', '2021-03-09', '1.5', 'Siamese', 'yes', 'yes');
 
 INSERT INTO prices (breed_price, first_vaccination_price, second_vaccination_price, kitten_id)
-VALUES ('10.00', '20.50', '30.25', 1),
-       ('10.00', '20.50', '30.25', 2);
+VALUES ('800.00', '29.50', '0', 1),
+       ('750.00', '29.50', '24.35', 2);
 
 INSERT INTO customers (first_name, last_name, date_of_birth, email, phone_number, which_breed, other_pets)
 VALUES ('Danielle', 'van den Akker', '1983-06-28', 'intoyou@gmail.com', '0612345678', 'Birman', 'Cat'),

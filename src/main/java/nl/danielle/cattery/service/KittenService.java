@@ -9,6 +9,6 @@ public interface KittenService {
     Collection<Kitten> getKittens();
     Kitten getKittenById(long id);
     long saveKitten(KittenRequest kittenRequest);
-    void updateKitten(long id, Kitten kitten);
+    void updateKitten(long id, KittenRequest kittenRequest);
     void deleteKitten(long id);
 }

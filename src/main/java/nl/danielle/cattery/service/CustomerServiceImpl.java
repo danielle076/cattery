@@ -1,7 +1,7 @@
 package nl.danielle.cattery.service;
 
-import nl.danielle.cattery.exceptions.DatabaseErrorException;
-import nl.danielle.cattery.exceptions.RecordNotFoundException;
+import nl.danielle.cattery.exception.DatabaseErrorException;
+import nl.danielle.cattery.exception.RecordNotFoundException;
 import nl.danielle.cattery.model.Address;
 import nl.danielle.cattery.model.Customer;
 import nl.danielle.cattery.model.CustomerBuilder;

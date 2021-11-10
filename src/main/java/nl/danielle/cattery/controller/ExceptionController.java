@@ -1,6 +1,6 @@
 package nl.danielle.cattery.controller;
 
-import nl.danielle.cattery.exceptions.*;
+import nl.danielle.cattery.exception.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

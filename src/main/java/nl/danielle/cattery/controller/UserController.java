@@ -1,6 +1,6 @@
 package nl.danielle.cattery.controller;
 
-import nl.danielle.cattery.exceptions.BadRequestException;
+import nl.danielle.cattery.exception.BadRequestException;
 import nl.danielle.cattery.model.User;
 import nl.danielle.cattery.service.UserService;
 import org.springframework.http.ResponseEntity;

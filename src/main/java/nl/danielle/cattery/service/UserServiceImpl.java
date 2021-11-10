@@ -1,7 +1,7 @@
 package nl.danielle.cattery.service;
 
-import nl.danielle.cattery.exceptions.RecordNotFoundException;
-import nl.danielle.cattery.exceptions.UsernameNotFoundException;
+import nl.danielle.cattery.exception.RecordNotFoundException;
+import nl.danielle.cattery.exception.UsernameNotFoundException;
 import nl.danielle.cattery.model.Authority;
 import nl.danielle.cattery.model.User;
 import nl.danielle.cattery.repository.UserRepository;

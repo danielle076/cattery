@@ -1,6 +1,6 @@
 package nl.danielle.cattery.service;
 
-import nl.danielle.cattery.exceptions.RecordNotFoundException;
+import nl.danielle.cattery.exception.RecordNotFoundException;
 import nl.danielle.cattery.model.FileUpload;
 import nl.danielle.cattery.model.Kitten;
 import nl.danielle.cattery.repository.FileUploadRepository;

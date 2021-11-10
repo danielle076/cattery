@@ -60,6 +60,10 @@ public class Customer {
         this.otherPets = otherPets;
     }
 
+    public Customer(String einstein) {
+
+    }
+
     public Customer() {
 
     }

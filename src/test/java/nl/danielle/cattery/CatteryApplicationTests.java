@@ -1,13 +1,19 @@
 package nl.danielle.cattery;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
-@SpringBootTest
-class CatteryApplicationTests {
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+@SpringBootTest()
+@ContextConfiguration(classes={CatteryApplication.class})
+class SpringBootStarterTestApplicationTests {
 
 	@Test
-	void contextLoads() {
+	@DisplayName("Testing if context is correctly set")
+	void ContextLoadsTest() {
+		assertNotEquals(1, 2);
 	}
-
 }

@@ -1,0 +1,26 @@
+{
+  "title": "Handleiding User",
+  "description": "Overzicht endpoints",
+  "endpoints": [
+    {
+      "method": "POST",
+      "endpoint":"/authenticate",
+      "description": "Inloggen met username en password."
+    },
+    {
+      "method": "GET",
+      "endpoint":"/authenticated",
+      "description": "Gegevens van de user inzien."
+    },
+    {
+      "method": "POST",
+      "endpoint":"/customers/add",
+      "description": "Toevoegen van nieuwe klanten."
+    },
+    {
+      "method": "POST",
+      "endpoint":"/kittens/add",
+      "description": "Toevoegen van nieuwe kittens."
+    }
+  ]
+}

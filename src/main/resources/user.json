@@ -1,26 +1,85 @@
 {
   "title": "Handleiding User",
   "description": "Overzicht endpoints",
-  "endpoints": [
+  "endpoints authenticate": [
     {
       "method": "POST",
-      "endpoint":"/authenticate",
+      "endpoint": "/authenticate",
       "description": "Inloggen met username en password."
     },
     {
       "method": "GET",
-      "endpoint":"/authenticated",
+      "endpoint": "/authenticated",
       "description": "Gegevens van de user inzien."
+    }
+  ],
+  "endpoints customers": [
+    {
+      "method": "GET",
+      "endpoint": "/customers",
+      "description": "Overzicht van de klanten."
+    },
+    {
+      "method": "GET",
+      "endpoint": "/customers/{id}",
+      "description": "1 klant bekijken."
     },
     {
       "method": "POST",
-      "endpoint":"/customers/add",
-      "description": "Toevoegen van nieuwe klanten."
+      "endpoint": "/customers/add",
+      "description": "Voeg een klant toe."
+    },
+    {
+      "method": "PUT",
+      "endpoint": "/customers/{id}",
+      "description": "Pas een klant aan."
+    },
+    {
+      "method": "DELETE",
+      "endpoint": "/customers/{id}",
+      "description": "Verwijder een klant."
+    },
+    {
+      "method": "GET",
+      "endpoint": "/customers/lastname/{lastname}",
+      "description": "Zoek klant op achternaam."
+    }
+  ],
+  "endpoints kittens": [
+    {
+      "method": "GET",
+      "endpoint": "/kittens",
+      "description": "Overzicht van de beschikbare kittens."
+    },
+    {
+      "method": "GET",
+      "endpoint": "/kittens/{id}",
+      "description": "1 beschikbare kitten bekijken."
     },
     {
       "method": "POST",
-      "endpoint":"/kittens/add",
-      "description": "Toevoegen van nieuwe kittens."
+      "endpoint": "/kittens/add",
+      "description": "Voeg een kitten toe."
+    },
+    {
+      "method": "POST",
+      "endpoint": "/kittens/upload/kittenid/3",
+      "description": "Voeg een foto toe aan een kitten."
+    },
+    {
+      "method": "POST",
+      "endpoint": "/kittens/download/{id}",
+      "description": "Download een foto van een kitten."
+    },
+    {
+      "method": "PUT",
+      "endpoint": "/kittens/{id}",
+      "description": "Pas een kitten aan."
+    },
+    {
+      "method": "DELETE",
+      "endpoint": "/kittens/{id}",
+      "description": "Verwijder een kitten."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "title": "Handleiding Admin",
   "description": "Overzicht endpoints",
-  "endpoints": [
+  "endpoints authenticate": [
     {
       "method": "POST",
       "endpoint": "/authenticate",
@@ -11,7 +11,9 @@
       "method": "GET",
       "endpoint": "/authenticated",
       "description": "Gegevens van de user inzien."
-    },
+    }
+  ],
+  "endpoints catparts": [
     {
       "method": "GET",
       "endpoint": "/catparts",
@@ -36,7 +38,9 @@
       "method": "DELETE",
       "endpoint": "/catparts/{id}",
       "description": "Verwijder een onderdeel."
-    },
+    }
+  ],
+  "endpoints customers": [
     {
       "method": "GET",
       "endpoint": "/customers",
@@ -66,8 +70,9 @@
       "method": "GET",
       "endpoint": "/customers/lastname/{lastname}",
       "description": "Zoek klant op achternaam."
-    },
-
+    }
+  ],
+  "endpoints kittens": [
     {
       "method": "GET",
       "endpoint": "/kittens",
@@ -102,8 +107,9 @@
       "method": "DELETE",
       "endpoint": "/kittens/{id}",
       "description": "Verwijder een kitten."
-    },
-
+    }
+  ],
+  "endpoints users": [
     {
       "method": "GET",
       "endpoint": "/users",
@@ -129,7 +135,6 @@
       "endpoint": "/users/{username}",
       "description": "Verwijder een user."
     },
-
     {
       "method": "GET",
       "endpoint": "/users/{username}/authorities",

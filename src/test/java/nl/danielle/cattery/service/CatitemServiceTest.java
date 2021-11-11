@@ -24,11 +24,8 @@ public class CatitemServiceTest {
     @Mock
     CatitemRepository catitemRepository;
 
-    @Mock
-    Catitem catitem;
-
     @BeforeEach
-    public void setup(){
+    public void setup() {
         MockitoAnnotations.openMocks(this);
 
         Catitem catitem = new Catitem();

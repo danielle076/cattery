@@ -28,9 +28,6 @@ public class CustomerServiceTest {
     @Mock
     CustomerRequest customerRequest;
 
-    @Mock
-    Customer customer;
-
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
@@ -53,12 +50,5 @@ public class CustomerServiceTest {
             customerService.getCustomerById(1L);
 
         });
-    }
-
-    @Test
-    void testGetCustomerByLastName() {
-        Mockito.when(customerRepository.findByLastNameIgnoreCase("Akker")).thenReturn(customer);
-        customerService.getCustomerByLastName("Akker");
-        Assertions.assertEquals("Akker", customer.getLastName());
     }
 }

@@ -8,12 +8,12 @@ import org.springframework.test.context.ContextConfiguration;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest()
-@ContextConfiguration(classes={CatteryApplication.class})
+@ContextConfiguration(classes = {CatteryApplication.class})
 class SpringBootStarterTestApplicationTests {
 
-	@Test
-	@DisplayName("Testing if context is correctly set")
-	void ContextLoadsTest() {
-		assertNotEquals(1, 2);
-	}
+    @Test
+    @DisplayName("Testing if context is correctly set")
+    void ContextLoadsTest() {
+        assertNotEquals(1, 2);
+    }
 }

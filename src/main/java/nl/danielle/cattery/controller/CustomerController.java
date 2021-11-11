@@ -29,7 +29,7 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseEntity<Object> createAddress(@RequestBody CustomerRequest customerRequest) {
+    public ResponseEntity<Object> createCustomer(@RequestBody CustomerRequest customerRequest) {
         long newId = customerService.createCustomer(customerRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

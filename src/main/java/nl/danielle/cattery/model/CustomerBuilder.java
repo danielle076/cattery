@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 public class CustomerBuilder {
 
-    //Customer
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
@@ -14,8 +13,6 @@ public class CustomerBuilder {
     private String phoneNumber;
     private String whichBreed;
     private String otherPets;
-
-    //Address
     private String streetName;
     private String houseNumber;
     private String postalCode;

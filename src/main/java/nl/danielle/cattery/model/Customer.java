@@ -45,11 +45,6 @@ public class Customer {
     @Column(name = "other_pets")
     private String otherPets;
 
-//    public Customer(String firstName, String lastName) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//    }
-
     public Customer(String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNumber, String whichBreed, String otherPets) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -139,20 +134,4 @@ public class Customer {
     public void setOtherPets(String otherPets) {
         this.otherPets = otherPets;
     }
-
-//    public int getAge() {
-//        return getAge(LocalDate.now());
-//    }
-//
-//    public int getAge(LocalDate onDate) {
-//        return calculateAge(this.dateOfBirth, onDate);
-//    }
-//
-//    private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
-//        if ((birthDate != null) && (currentDate != null)) {
-//            return Period.between(birthDate, currentDate).getYears();
-//        } else {
-//            return 0;
-//        }
-//    }
 }

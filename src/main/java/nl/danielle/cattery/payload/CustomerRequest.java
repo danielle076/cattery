@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 public class CustomerRequest {
 
-    //Customer
     @NotNull
     private String firstName;
     @NotNull
@@ -21,8 +20,6 @@ public class CustomerRequest {
     private String whichBreed;
     @NotNull
     private String otherPets;
-
-    //Address
     @NotNull
     private String streetName;
     @NotNull

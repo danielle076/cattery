@@ -35,19 +35,19 @@ public class CustomerController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body("Added new customer");
     }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateCustomer(@PathVariable("id") long id, @RequestBody CustomerRequest customerRequest) {
         customerService.updateCustomer(id, customerRequest);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("Updated customer: " + id);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteCustomer(@PathVariable("id") long id) {
         customerService.deleteCustomer(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("Deleted item: " + id);
     }
 
     @GetMapping(value = "/lastname/{lastname}")

@@ -52,7 +52,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/users/**").hasRole("BACKOFFICE")
-                .antMatchers("/catparts/**").hasRole("BACKOFFICE")
+                .antMatchers("/catitems/**").hasRole("BACKOFFICE")
                 .antMatchers("/kittens/**").authenticated()
                 .antMatchers("/customers/**").authenticated()
                 .antMatchers("/authenticated").authenticated()

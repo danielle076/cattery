@@ -35,19 +35,18 @@ public class CatitemController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body("Added new item");
     }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateCatitemById(@PathVariable("id") long id, @RequestBody Catitem catitem) {
         catitemService.updateCatitemById(id, catitem);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("Updated item: " + id);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteCatitem(@PathVariable("id") long id) {
         catitemService.deleteCatitem(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("Deleted item: " + id);
     }
 }
-

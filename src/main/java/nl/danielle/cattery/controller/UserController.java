@@ -37,20 +37,19 @@ public class UserController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{username}")
                 .buildAndExpand(newUsername).toUri();
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body("Added new user");
     }
 
-    // je kan alleen password aanpassen, username niet
     @PutMapping(value = "/{username}")
     public ResponseEntity<Object> updateUser(@PathVariable("username") String username, @RequestBody User user) {
         userService.updateUser(username, user);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().body("Updated user: " + username);
     }
 
     @DeleteMapping(value = "/{username}")
     public ResponseEntity<Object> deleteUser(@PathVariable("username") String username) {
         userService.deleteUser(username);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().body("Deleted user: " + username);
     }
 
     @GetMapping(value = "/{username}/authorities")
@@ -58,13 +57,12 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getAuthorities(username));
     }
 
-    // werkt -- > maar kun je ook overal bij? Ja, maar je moet wel zowel rol backoffice als rol user toevoegen
     @PostMapping(value = "/{username}/authorities")
     public ResponseEntity<Object> addUserAuthority(@PathVariable("username") String username, @RequestBody Map<String, Object> fields) {
         try {
             String authorityName = (String) fields.get("authority");
             userService.addAuthority(username, authorityName);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.ok().body("Added new authority: " + authorityName);
         } catch (Exception ex) {
             throw new BadRequestException();
         }
@@ -73,6 +71,6 @@ public class UserController {
     @DeleteMapping(value = "/{username}/authorities/{authority}")
     public ResponseEntity<Object> deleteUserAuthority(@PathVariable("username") String username, @PathVariable("authority") String authority) {
         userService.removeAuthority(username, authority);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().body("Deleted authority: " + authority);
     }
 }

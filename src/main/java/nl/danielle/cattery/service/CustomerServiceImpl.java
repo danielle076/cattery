@@ -29,14 +29,6 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAll();
     }
 
-//    @Override
-//    public Customer getCustomerById(long id) {
-//        if (!customerRepository.existsById(id)) {
-//            throw new RecordNotFoundException();
-//        }
-//        return customerRepository.findById(id).orElse(null);
-//    }
-
     @Override
     public Customer getCustomerById(long id) {
         return customerRepository.findById(id).orElseThrow(() -> new RecordNotFoundException());
@@ -81,11 +73,6 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RecordNotFoundException();
         }
     }
-
-//    @Override
-//    public void deleteCustomer(long id) {
-//        customerRepository.deleteById(id);
-//    }
 
     @Override
     public void deleteCustomer(long id) {

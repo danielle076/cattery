@@ -26,7 +26,7 @@ INSERT into addresses (street_name, house_number, postal_code, home_town, custom
 VALUES ('Dorpstraat', '250', '1000AB', 'Amsterdam', 1),
        ('Laan', '10', '1000AB', 'Utrecht', 2);
 
-INSERT INTO catparts (description, price)
+INSERT INTO catitems (description, price)
 VALUES ('Birman', 800),
        ('Siamese', 750),
        ('Ragdoll', 950),

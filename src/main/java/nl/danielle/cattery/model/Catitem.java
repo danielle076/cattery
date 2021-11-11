@@ -5,8 +5,8 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "catparts")
-public class Catpart {
+@Table(name = "catitems")
+public class Catitem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

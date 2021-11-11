@@ -25,7 +25,7 @@ public class Kitten {
     private double weight;
 
     @NotNull
-    @Column(name = "breed")
+    @Column
     private String breed;
 
     @Column(name = "first_vaccination")

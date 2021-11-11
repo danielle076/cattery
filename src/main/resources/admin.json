@@ -13,31 +13,31 @@
       "description": "Gegevens van de user inzien."
     }
   ],
-  "endpoints catparts": [
+  "endpoints catitems": [
     {
       "method": "GET",
-      "endpoint": "/catparts",
+      "endpoint": "/catitems",
       "description": "Overzicht van de prijzen."
     },
     {
       "method": "GET",
-      "endpoint": "/catparts/{id}",
-      "description": "1 onderdeel bekijken."
+      "endpoint": "/catitems/{id}",
+      "description": "1 item bekijken."
     },
     {
       "method": "POST",
-      "endpoint": "/catparts/add",
-      "description": "Voeg een onderdeel en prijs toe."
+      "endpoint": "/catitems/add",
+      "description": "Voeg een item en prijs toe."
     },
     {
       "method": "PUT",
-      "endpoint": "/catparts/{id}",
-      "description": "Pas een onderdeel en prijs aan."
+      "endpoint": "/catitems/{id}",
+      "description": "Pas een item en prijs aan."
     },
     {
       "method": "DELETE",
-      "endpoint": "/catparts/{id}",
-      "description": "Verwijder een onderdeel."
+      "endpoint": "/catitems/{id}",
+      "description": "Verwijder een item."
     }
   ],
   "endpoints customers": [

@@ -1,8 +1,8 @@
 package nl.danielle.cattery.service;
 
 import nl.danielle.cattery.exception.RecordNotFoundException;
-import nl.danielle.cattery.model.Catpart;
-import nl.danielle.cattery.repository.CatpartRepository;
+import nl.danielle.cattery.model.Catitem;
+import nl.danielle.cattery.repository.CatitemRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,33 +16,33 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.Optional;
 
 @ExtendWith(SpringExtension.class)
-public class CatpartServiceTest {
+public class CatitemServiceTest {
 
     @InjectMocks
-    CatpartServiceImpl catpartService;
+    CatitemServiceImpl catpartService;
 
     @Mock
-    CatpartRepository catpartRepository;
+    CatitemRepository catitemRepository;
 
     @Mock
-    Catpart catpart;
+    Catitem catitem;
 
     @BeforeEach
     public void setup(){
         MockitoAnnotations.openMocks(this);
 
-        Catpart catpart = new Catpart();
-        catpart.setId(1L);
-        catpart.setDescription("Burmees");
-        catpart.setPrice(10.00);
+        Catitem catitem = new Catitem();
+        catitem.setId(1L);
+        catitem.setDescription("Burmees");
+        catitem.setPrice(10.00);
     }
 
     @Test
     void testGetCatpartById() {
 
-        Mockito.when(catpartRepository.findById(1L)).thenReturn(Optional.empty());
+        Mockito.when(catitemRepository.findById(1L)).thenReturn(Optional.empty());
         Assertions.assertThrows(RecordNotFoundException.class, () -> {
-            catpartService.getCatpartById(1L);
+            catpartService.getCatitemById(1L);
 
         });
     }
@@ -50,9 +50,9 @@ public class CatpartServiceTest {
     @Test
     void testDeleteCatpart() {
 
-        Mockito.when(catpartRepository.existsById(1L)).thenReturn(false);
+        Mockito.when(catitemRepository.existsById(1L)).thenReturn(false);
         Assertions.assertThrows(RecordNotFoundException.class, () -> {
-            catpartService.deleteCatpart(1L);
+            catpartService.deleteCatitem(1L);
 
         });
     }

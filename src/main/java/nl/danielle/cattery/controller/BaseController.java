@@ -12,7 +12,7 @@ public class BaseController {
 
     @GetMapping(value = "")
     public ResponseEntity<Object> index() {
-        return ResponseEntity.ok().body("/user and /admin endpoints available");
+        return ResponseEntity.ok().body("/user and /backoffice endpoints available");
     }
 
     @GetMapping(value = "/user", produces = {"application/json"})
@@ -20,8 +20,8 @@ public class BaseController {
         return Info.getInfoUser();
     }
 
-    @GetMapping(value = "/admin", produces = {"application/json"})
-    public String infoAdmin() {
-        return Info.getInfoAdmin();
+    @GetMapping(value = "/backoffice", produces = {"application/json"})
+    public String infoBackoffice() {
+        return Info.getInfoBackoffice();
     }
 }

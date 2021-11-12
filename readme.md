@@ -75,7 +75,7 @@ To retrieve the info from [Info.java](src/main/java/nl/danielle/cattery/model/In
 
 ```jshelllanguage
 private static final String FILENAMEUSER = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/user.json";
-private static final String FILENAMEADMIN = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/admin.json";
+private static final String FILENAMEBACKOFFICE = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/backoffice.json";
 ```
 
 * __Run the application__

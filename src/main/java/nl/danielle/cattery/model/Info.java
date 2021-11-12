@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Info {
 
     private static final String FILENAMEUSER = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/user.json";
-    private static final String FILENAMEADMIN = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/admin.json";
+    private static final String FILENAMEBACKOFFICE = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/backoffice.json";
 
     public static String getInfoUser() {
         try {
@@ -23,9 +23,9 @@ public class Info {
         }
     }
 
-    public static String getInfoAdmin() {
+    public static String getInfoBackoffice() {
         try {
-            File file = new File(FILENAMEADMIN);
+            File file = new File(FILENAMEBACKOFFICE);
             Scanner sc = new Scanner(file);
 
             StringBuilder sb = new StringBuilder();

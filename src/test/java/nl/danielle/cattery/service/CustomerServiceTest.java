@@ -2,7 +2,7 @@ package nl.danielle.cattery.service;
 
 import nl.danielle.cattery.exception.RecordNotFoundException;
 import nl.danielle.cattery.model.Customer;
-import nl.danielle.cattery.payload.CustomerRequest;
+import nl.danielle.cattery.payload.request.CustomerRequest;
 import nl.danielle.cattery.repository.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

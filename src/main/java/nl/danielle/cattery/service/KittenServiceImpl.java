@@ -5,7 +5,7 @@ import nl.danielle.cattery.exception.RecordNotFoundException;
 import nl.danielle.cattery.model.Kitten;
 import nl.danielle.cattery.model.KittenBuilder;
 import nl.danielle.cattery.model.Price;
-import nl.danielle.cattery.payload.KittenRequest;
+import nl.danielle.cattery.payload.request.KittenRequest;
 import nl.danielle.cattery.repository.KittenRepository;
 import nl.danielle.cattery.repository.PriceRepository;
 import org.springframework.stereotype.Service;

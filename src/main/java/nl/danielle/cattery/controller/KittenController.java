@@ -1,8 +1,8 @@
 package nl.danielle.cattery.controller;
 
 import nl.danielle.cattery.model.FileUpload;
-import nl.danielle.cattery.payload.KittenRequest;
-import nl.danielle.cattery.payload.MessageResponse;
+import nl.danielle.cattery.payload.request.KittenRequest;
+import nl.danielle.cattery.payload.response.MessageResponse;
 import nl.danielle.cattery.service.FileStorageServiceImpl;
 import nl.danielle.cattery.service.KittenService;
 import org.springframework.http.HttpHeaders;

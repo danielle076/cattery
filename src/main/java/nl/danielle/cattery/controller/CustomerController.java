@@ -1,6 +1,6 @@
 package nl.danielle.cattery.controller;
 
-import nl.danielle.cattery.payload.CustomerRequest;
+import nl.danielle.cattery.payload.request.CustomerRequest;
 import nl.danielle.cattery.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

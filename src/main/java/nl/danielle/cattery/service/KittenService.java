@@ -1,7 +1,7 @@
 package nl.danielle.cattery.service;
 
 import nl.danielle.cattery.model.Kitten;
-import nl.danielle.cattery.payload.KittenRequest;
+import nl.danielle.cattery.payload.request.KittenRequest;
 
 import java.util.Collection;
 

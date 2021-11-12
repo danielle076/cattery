@@ -1,4 +1,4 @@
-package nl.danielle.cattery.payload;
+package nl.danielle.cattery.payload.request;
 
 import com.sun.istack.NotNull;
 

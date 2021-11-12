@@ -1,7 +1,7 @@
 package nl.danielle.cattery.controller;
 
-import nl.danielle.cattery.payload.AuthenticationRequest;
-import nl.danielle.cattery.payload.AuthenticationResponse;
+import nl.danielle.cattery.payload.request.AuthenticationRequest;
+import nl.danielle.cattery.payload.response.AuthenticationResponse;
 import nl.danielle.cattery.service.CustomUserDetailsService;
 import nl.danielle.cattery.utils.JwtUtil;
 import org.springframework.http.ResponseEntity;

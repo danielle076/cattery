@@ -1,7 +1,7 @@
 package nl.danielle.cattery.service;
 
 import nl.danielle.cattery.model.Customer;
-import nl.danielle.cattery.payload.CustomerRequest;
+import nl.danielle.cattery.payload.request.CustomerRequest;
 
 import java.util.Collection;
 

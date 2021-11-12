@@ -1,4 +1,4 @@
-package nl.danielle.cattery.payload;
+package nl.danielle.cattery.payload.request;
 
 public class AuthenticationRequest {
 

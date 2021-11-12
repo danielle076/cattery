@@ -1,6 +1,6 @@
 package nl.danielle.cattery.model;
 
-import nl.danielle.cattery.payload.CustomerRequest;
+import nl.danielle.cattery.payload.request.CustomerRequest;
 
 import java.time.LocalDate;
 

@@ -1,313 +1,108 @@
-## Stap 1: Het idee
+##  RESTful API webservice Cattery
 
-![img.png](pictures/img.png)
+### Table of contents
+1. Introduction
+2. Project 
+3. Requirements
+4. Installation guide
+5. Users
+6. Endpoints
 
-## Stap 2: ontwerp UML
+### 1. Introduction
 
-### Eerste opzet 
+This backend programming final assignment was created as a result of the Backend Development course at NOVI University of Applied Sciences.
 
-De rode woorden zijn zelfstandige naamwoorden, de groene woorden zijn de werkwoorden.
+The project was set up with [Spring Boot](https://spring.io/projects/spring-boot). 
 
-![img2.png](pictures/img2.png)
+### 2. Project
 
-De zelfstandige naamwoorden voor het idee zijn als volgt.
+For a cattery we create a system that keeps records of kittens, customers, items/prices and users.
 
-- Administratief medewerker
-- Backoffice
-- Kitten
-- Klant
+An administrative employee or back office are authorized to add kittens and customers to the system. In addition to adding data, they can retrieve, delete and update data.
 
-### Klassendiagram
+### 3. Requirements
 
-_Concept klassendiagram_
+- IntelliJ IDEA 2021.2
+- Maven 3.6.3
+- Java Development Kit 11.0.12
+- PostgreSQL 13
+- PgAdmin 5.4
+- Postman 9.1.3
 
-![img10.png](pictures/img10.png)
+### 4. Installation guide
 
-![img4.png](pictures/img4.png)
+After installing all the tools on your Operating System, we can get started to run the Spring Boot application on your local machine.
 
-## Software
+* __Start up IDEA__
+    * _Open the project_
+        * clone the repository from [github](https://github.com/danielle076/cattery)
+        * File > New > Project from Version Control
+        * paste in the cloned Repository URL
+        * if git is not installed, choose download and install and proceed
 
-### Stap 3: Initializr
+    * _Set up Software Development Kit_
+        * go to File > Project Structure
+        * Project Settings > Project
+            * Project SDK: select version 11
+            * Project language level: choose SDK default 
+            * click OK
 
-Ga naar de website <a href="https://start.spring.io" target="_blank">spring.io</a>. De volgende gegevens vul je in voor
-het eerste Spring Boot project.
 
-- Project: vink aan `Maven Project`
-- Language: vink aan `Java`
-- Spring Boot: vink aan `2.5.6` (laatste versie)
-- Project Metadata: vul informatie in over jouw project
-    - Group: `nl.danielle` (identifier van de ontwikkelaar)
-    - Artifact: `cattery` (hoe heet je project)
-    - Name: `cattery` (hoe heet je project)
-    - Description: `Cattery project for Spring Boot`
-    - Package name: maakt het systeem zelf aan
-    - Packaging: vink aan `Jar`
-    - Java: vink aan `11`
+* __Set up Database__
+    * Start up Postgres and log in on PGAdmin with you master password
+    * Open left tab `Servers`
+        * Right mouse click on Login/Group Roles and choose `Create`
+            * under tab general you fill in the name: `postgres`
+            * under tab definition you fill in the password: `postgres123` and save
+            * under tab privileges toggle `can login?` to yes.
+        * Right mouse click on Databases and choose `Create` Database
+            * under tab general you fill in the database: `cattery`
+            * under tab general you fill in the owner: the one you just created: `postgres` and save
 
-Klik op "add dependencies" en voeg `Spring Web`, `SpringData JPA` en `PostgreSQL Driver` toe.
+This way you can run the application from this cloned repository, just as it is set up in
+[application.properties](src/main/resources/application.properties).
+You can choose to change it and create a different database and login name and password as above described and change it in the app properties as well to connect them.
 
-Met "generate" wordt er een bestand in jouw download map gezet. Unzip het bestand en open het in Intellij.
-
-Klik vervolgens rechtsonder in IntelliJ op `Load`.
-
-Ga naar File > Project Structure en zet `Project SDK` op 11. Klik op apply.
-
-### Stap 4: pom.xml 
-
-Wanneer je in `pom.xml` een foutmelding krijgt, zet je de `<parent>` versie op `<version>2.4.3</version>` en wanneer je een foutmelding in de `<plugin>` krijg zet je de versie er tussen op de volgende manier: `<version>${project.parent.version}</version>`.
-
-De pom.xml heeft de volgende structuur:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>nl.danielle</groupId>
-	<artifactId>cattery</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>cattery</name>
-	<description>Cattery project for Spring Boot</description>
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${project.parent.version}</version>
-			</plugin>
-		</plugins>
-	</build>
-
-</project>
-```
-### Stap 5: application.properties
-
-`@SpringBootApplication` moet gaan communiceren met postgreSQL. Om dit voorelkaar te krijgen moet je in het project van IntelliJ naar `resources` gaan en dan `application.properties`. De gegevens van postgreSQL worden aan de hand van de code die je daar inzet gekoppeld met de database.
-
-    # datasource PostgreSQl
-    spring.datasource.platform=postgres
-    spring.datasource.url=jdbc:postgresql://localhost:5432/cattery
-    spring.datasource.username=postgres
-    spring.datasource.password=postgres123
-    spring.datasource.driver-class-name=org.postgresql.Driver
-    
-    # jpa
-    spring.jpa.database=postgresql
-    spring.jpa.show-sql=true
-    
-    # generate schema dll to create tables
-    spring.jpa.generate-ddl=true
-    spring.jpa.hibernate.ddl-auto=create
-    spring.datasource.initialization-mode=always
-    
-    # database initialization with data.sql after hibernate
-    spring.jpa.defer-datasource-initialization=true
-    
-    # hibernate
-    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-    
-    # Fix Postgres JPA Error (Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented).
-    spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
-
-- `url` is de database naam in pgAdmin
-- `username` is jouw username in pgAdmin
-- `password` is jouw wachtwoord in pgAdmin
-
-### Stap 6: model
-
-We gaan de entities maken die we in ons klassendiagram hebben gezet. We maken een nieuwe package genaamd `model` en nieuwe klasse genaamd `Person.java`, `Kitten.java` en `Customer.java` in IntelliJ.
-
-Dit worden de tabellen in postgreSQL.
-
-![img5.png](pictures/img5.png)
-
-We voegen een nieuwe `dependency` toe aan `pom.xml` voor validatiebeperkingen die zijn toegepast op `User.java`.
-
-```xml
-<dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-validation</artifactId>
-</dependency>
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/cattery
+spring.datasource.username=postgres
+spring.datasource.password=postgres123
 ```
 
-### Stap 7: repository
+* __Set up info.java__
 
-We gaan verder met alleen `user`. We maken een nieuwe package aan genaamd `repository` met daarin 1 bestand: `UserRepository.java`. In deze package praat de `UserRepository` klasse met de database.
+To retrieve the info from [Info.java](src/main/java/nl/danielle/cattery/model/Info.java), modify the link to where the cloned project is located. Modify only `/Users/intoy/Novi/Backend_end command/cattery/cattery/src/main/resources/`.
 
-### Stap 8: service
-
-We maken een nieuwe package aan genaamd `service` met daarin 1 bestand: `UserService.java`.
-
-### Stap 9: controller
-
-Maak een nieuwe package aan genaamd `controller` met daarin 2 bestanden: `UserController.java` en `ValidationHandler.java`.
-
-### Stap 10: test applicatie: users toevoegen
-
-Run de applicatie.
-
-##### POST toevoegen verkeerde user
-
-In postgreSQL vul je url `http://localhost:8080/users` in met methode `POST` en in de request body zet je het volgende.
-
-```
-{
-  "userName": "a",
-  "email": "hallo",
-  "password": "123"
-}
+```jshelllanguage
+private static final String FILENAMEUSER = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/user.json";
+private static final String FILENAMEADMIN = "/Users/intoy/Novi/Backend_eindopdracht/cattery/cattery/src/main/resources/admin.json";
 ```
 
-In de response body krijg je het volgende terug.
+* __Run the application__
+    * Run with IDEA:
+        * In your IDEA you open the tab `project`
+        * cattery -> src -> main -> java ->
+          [CatteryApplication](src/main/java/nl/danielle/cattery/CatteryApplication.java)
+        * to run go to the green arrow next to public class: MensCreateApplication on line 7
+        * right mouse click and choose Run 'CatteryApplication' 
+        * to check if your database is initialized and with the correct information corresponding with app.propperties the console will show you `Spring Data repositories initialized` 
+    * Run with maven in command line: `$ mvn spring-boot:run`
 
-![img6.png](pictures/img6.png)
+### 5. Users
 
-##### POST toevoegen juiste user
+There are two hard coded users in [data.sql](src/main/resources/data.sql) that can be used when testing the endpoints in Postman.
 
-In postgreSQL vul je url `http://localhost:8080/users` in met methode `POST` en in de request body zet je het volgende.
+|username|password| 
+|----|----|
+|user|$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica|
+|backoffice|$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1icaR|
 
-```
-{
-  "userName": "Danielle",
-  "email": "intoyou@gmail.com",
-  "password": "123456"
-}
-```
+### 6. Endpoints
 
-In de response body krijg je het volgende terug.
+In Postman you can test endpoints. You don't have to write these yourself, you can import a collection of my endpoints into Postman.
 
-![img7.png](pictures/img7.png)
+In the folder resources > [postman](src/main/resources/postman) there are 6 collections that you can save on your own computer. When you open Postman you will find two options above the collections: new and import. Choose import, select the 6 files and click import.
 
-##### GET
+#### Pictures
 
-In postgreSQL vul je url `http://localhost:8080/users` in met methode `GET`.
-
-![img8.png](pictures/img8.png)
-
-## Stap 11: HTTPS
-
-Het grote nadeel van basic authentication is dat alles openbaar is. 
-
-We maken een zelfondertekend certificaat en zetten het gemaakte bestand `certificate.jks` in de map `resources`.
-
-Aan het bestand `application.properties` voeg je de volgende code toe.
-
-```
-server.ssl.key-store=classpath:certificate.jks
-server.ssl.key-store-type=pkcs12
-server.ssl.key-store-password=password
-server.ssl.key-password=password
-server.ssl.key-alias=certificate
-server.port=8443
-```
-
-##### Test applicatie
-
-Run de applicatie.
-
-In Postman gebruik je de url `https://localhost:8443/users`. Zorg ervoor dat je bij de settings het zelfondertekende certificaat toestaat.
-
-![img9.png](pictures/img9.png)
-
-## Stap 12: exception
-
-We maken een nieuwe package aan genaamd `exception` met daarin 4 bestanden: `DatabaseErrorException.java`, `DuplicateRecordInDatabase.java`, `RecordNotFoundException.java` en `StatusErrorException.java`.
-
-## Stap 13: address
-
-Address invoeren in customer is niet handig, daarom gebruiken we een aparte CustomerBuilder.
-
-## Stap 14: JWT
-
-Ga in Postman naar url `https://localhost:8443/users` met methode `GET`. Je krijgt status `403 forbidden` terug, je hebt geen toegang.
-
-Selecteer methode `POST` en `https://localhost:8443/authenticate`. In de body moeten we een Username en een Password meegeven. Zet hem op `raw` en `JSON` en kopieer de volgende code in de body.
-
-```
-{
-"username": "backoffice",
-"password": "password"
-}
-```
-
-Druk op send en je krijgt een JWT token terug.
-
-Selecteer Bearer Token in `Authorization` en de token die je hebt teruggekregen zet je in het veld Token.
-
-Ga naar url `https://localhost:8443/backoffice` en `GET`. Je hebt toegang gekregen via de token.
-
-### SpringSecurityConfig
-
-Rollen:
-- Backoffice
-- Administration Employee
-
-### Users
-
-{
-"username": "danielle",
-"password": "$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica",
-"enabled": true
-}
-
-Bij het toevoegen van de rollen, zowel user als backoffice toevoegen, zodat je overal toegang tot hebt voor de backoffice rol.
-
-### Kittens
-
-```
-{
-  "name": "Freckle",
-  "dateBorn": "20",
-  "weight": "2.5",
-  "nameOfMother": "Danielle",
-  "nameOfFather": "Thierry",
-  "familyTree": "Something",
-  "firstVaccination": "10",
-  "secondVaccination": "5"
-}
-```
-
-### Customers
-
-```
-{
-  "firstName": "Heather",
-  "lastName": "Furguson",
-  "dateOfBirth": "1981-02-15",
-  "email": "heather@gmail.com",
-  "phoneNumber": "0612345678",
-  "kids": "2",
-  "otherPets": "1"
-}
-```
+In the folder resources > [pictures](src/main/resources/pictures) there are pictures that can be used for uploading pictures.

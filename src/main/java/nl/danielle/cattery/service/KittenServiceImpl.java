@@ -31,7 +31,12 @@ public class KittenServiceImpl implements KittenService {
 
     @Override
     public Kitten getKittenById(long id) {
-        return kittenRepository.findById(id).orElseThrow(() -> new RecordNotFoundException());
+
+        if (kittenRepository.existsById(id)) {
+            return kittenRepository.findById(id).orElse(null);
+        } else {
+            throw new RecordNotFoundException();
+        }
     }
 
     @Override

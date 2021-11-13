@@ -21,7 +21,7 @@ public class BaseControllerTest {
     void indexTest() throws Exception {
         mvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("/user and /admin endpoints available"));
+                .andExpect(content().string("/user and /backoffice endpoints available"));
     }
 }
 

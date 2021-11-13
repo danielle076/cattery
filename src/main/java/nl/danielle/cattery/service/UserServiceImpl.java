@@ -1,7 +1,6 @@
 package nl.danielle.cattery.service;
 
 import nl.danielle.cattery.exception.RecordNotFoundException;
-import nl.danielle.cattery.exception.UsernameNotFoundException;
 import nl.danielle.cattery.model.Authority;
 import nl.danielle.cattery.model.User;
 import nl.danielle.cattery.repository.UserRepository;
@@ -51,14 +50,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Set<Authority> getAuthorities(String username) {
-        if (!userRepository.existsById(username)) throw new UsernameNotFoundException(username);
+        if (!userRepository.existsById(username)) throw new RecordNotFoundException();
         User user = userRepository.findById(username).get();
         return user.getAuthorities();
     }
 
     @Override
     public void addAuthority(String username, String authority) {
-        if (!userRepository.existsById(username)) throw new UsernameNotFoundException(username);
+        if (!userRepository.existsById(username)) throw new RecordNotFoundException();
         User user = userRepository.findById(username).get();
         user.addAuthority(new Authority(username, authority));
         userRepository.save(user);
@@ -66,7 +65,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void removeAuthority(String username, String authority) {
-        if (!userRepository.existsById(username)) throw new UsernameNotFoundException(username);
+        if (!userRepository.existsById(username)) throw new RecordNotFoundException();
         User user = userRepository.findById(username).get();
         Authority authorityToRemove = user.getAuthorities().stream().filter((a) -> a.getAuthority().equalsIgnoreCase(authority)).findAny().get();
         user.removeAuthority(authorityToRemove);

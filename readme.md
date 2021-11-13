@@ -95,7 +95,7 @@ There are two hard coded users in [data.sql](src/main/resources/data.sql) that c
 |username|password| 
 |----|----|
 |user|$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica|
-|backoffice|$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1icaR|
+|backoffice|$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica|
 
 ### 6. Endpoints
 
@@ -106,3 +106,14 @@ In the folder resources > [postman](src/main/resources/postman) there are 6 coll
 #### Pictures
 
 In the folder resources > [pictures](src/main/resources/pictures) there are pictures that can be used for uploading pictures.
+
+Instructions on how to add a photo in Postman:
+- In _Body_ choose form-data
+- Under _KEY_, enter `file` in lowercase and select _File_ (dropdown).
+- Select the picture under _VALUE_ 
+
+Instructions on how to download a photo in Postman:
+- Go to https://localhost:8443/kittens/ with method GET
+- At fileUpload copy the id
+- Put the id behind the url https://localhost:8443/kittens/download/
+- When you have pressed send, go to _Save Response_, click on _Save to file_ and save the file as a _.jpg_ file

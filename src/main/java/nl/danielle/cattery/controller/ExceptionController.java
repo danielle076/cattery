@@ -20,8 +20,8 @@ public class ExceptionController {
         return ResponseEntity.badRequest().build();
     }
 
-    @ExceptionHandler(value = UsernameNotFoundException.class)
-    public ResponseEntity<Object> exception(UsernameNotFoundException exception) {
+    @ExceptionHandler(value = DatabaseErrorException.class)
+    public ResponseEntity<Object> exception(DatabaseErrorException exception) {
         return ResponseEntity.badRequest().build();
     }
 }

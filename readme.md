@@ -85,7 +85,7 @@ private static final String FILENAMEBACKOFFICE = "/Users/intoy/Novi/Backend_eind
         * cattery > src > main > java > [CatteryApplication](src/main/java/nl/danielle/cattery/CatteryApplication.java)
         * to run go to the green arrow next to public class: CatteryApplication on line 7
         * right mouse click and choose Run 'CatteryApplication' 
-        * to check if your database is initialized and with the correct information corresponding with application.propperties the console will show you `Spring Data repositories initialized` 
+        * to check if your database is initialized and with the correct information corresponding with application.properties the console will show you `Spring Data repositories initialized` 
     * Run with maven in command line: `$ mvn spring-boot:run`
 
 ### 5. Users

@@ -36,10 +36,11 @@ After installing all the tools on your Operating System, we can get started to r
 * __Start up IDEA__
     * _Open the project_
         * clone the repository from [github](https://github.com/danielle076/cattery)
-        * File > New > Project from Version Control
-        * paste in the cloned Repository URL
+        * go to File > New > Project from Version Control
+        * paste in the cloned URL
         * if git is not installed, choose download and install and proceed
-
+        * click clone
+        
     * _Set up Software Development Kit_
         * go to File > Project Structure
         * Project Settings > Project
@@ -57,11 +58,11 @@ After installing all the tools on your Operating System, we can get started to r
             * under tab privileges toggle `can login?` to yes.
         * Right mouse click on Databases and choose `Create` Database
             * under tab general you fill in the database: `cattery`
-            * under tab general you fill in the owner: the one you just created: `postgres` and save
+            * under tab general you fill in the owner: `postgres` and save
 
-This way you can run the application from this cloned repository, just as it is set up in
-[application.properties](src/main/resources/application.properties).
-You can choose to change it and create a different database and login name and password as above described and change it in the app properties as well to connect them.
+This way you can run the application from this cloned repository.
+
+You can choose to change it and create a different database and login name and password as above described and change it in the [application.properties](src/main/resources/application.properties).
 
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/cattery
@@ -81,11 +82,10 @@ private static final String FILENAMEBACKOFFICE = "/Users/intoy/Novi/Backend_eind
 * __Run the application__
     * Run with IDEA:
         * In your IDEA you open the tab `project`
-        * cattery -> src -> main -> java ->
-          [CatteryApplication](src/main/java/nl/danielle/cattery/CatteryApplication.java)
-        * to run go to the green arrow next to public class: MensCreateApplication on line 7
+        * cattery > src > main > java > [CatteryApplication](src/main/java/nl/danielle/cattery/CatteryApplication.java)
+        * to run go to the green arrow next to public class: CatteryApplication on line 7
         * right mouse click and choose Run 'CatteryApplication' 
-        * to check if your database is initialized and with the correct information corresponding with app.propperties the console will show you `Spring Data repositories initialized` 
+        * to check if your database is initialized and with the correct information corresponding with application.propperties the console will show you `Spring Data repositories initialized` 
     * Run with maven in command line: `$ mvn spring-boot:run`
 
 ### 5. Users
@@ -105,7 +105,7 @@ In the folder resources > [postman](src/main/resources/postman) there are 6 coll
 
 #### Pictures
 
-In the folder resources > [pictures](src/main/resources/pictures) there are pictures that can be used for uploading pictures.
+In the folder resources > [pictures](src/main/resources/pictures), there are pictures that can be used for uploading pictures.
 
 Instructions on how to add a photo in Postman:
 - In _Body_ choose form-data
@@ -114,6 +114,6 @@ Instructions on how to add a photo in Postman:
 
 Instructions on how to download a photo in Postman:
 - Go to https://localhost:8443/kittens/ with method GET
-- At fileUpload copy the id
+- At _fileUpload_ copy the id
 - Put the id behind the url https://localhost:8443/kittens/download/
 - When you have pressed send, go to _Save Response_, click on _Save to file_ and save the file as a _.jpg_ file

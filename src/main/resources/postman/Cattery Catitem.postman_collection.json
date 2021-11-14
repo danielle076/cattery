@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "0b6ae578-e000-46e5-8476-cf517618285f",
+		"name": "Cattery Catitem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Catitems",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkxOTQ3LCJpYXQiOjE2MzY4Mjc5NDd9.97xcAs15QMIWrnCPa373pppI1TW6_KUmgr6iBktrYSE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/catitems",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"catitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Catitem {id}",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkxOTQ3LCJpYXQiOjE2MzY4Mjc5NDd9.97xcAs15QMIWrnCPa373pppI1TW6_KUmgr6iBktrYSE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/catitems/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"catitems",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Catitem",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkxOTQ3LCJpYXQiOjE2MzY4Mjc5NDd9.97xcAs15QMIWrnCPa373pppI1TW6_KUmgr6iBktrYSE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Ontworming\",\r\n    \"price\": 10.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/catitems/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"catitems",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Catitem {id}",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkxOTQ3LCJpYXQiOjE2MzY4Mjc5NDd9.97xcAs15QMIWrnCPa373pppI1TW6_KUmgr6iBktrYSE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Bengal\",\r\n    \"price\": 500.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/catitems/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"catitems",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Catitem {id}",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkxOTQ3LCJpYXQiOjE2MzY4Mjc5NDd9.97xcAs15QMIWrnCPa373pppI1TW6_KUmgr6iBktrYSE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/catitems/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"catitems",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

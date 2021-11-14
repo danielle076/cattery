@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "c0a176eb-b17d-4d79-9f10-405852004405",
+		"name": "Cattery User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/users/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\": \"danielle\",\r\n\"password\": \"$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica\",\r\n\"enabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\": \"danielle\",\r\n\"password\": \"$2a$10$jjXPtFMJEmeSnc70OAV1H.ctSwvlrSvGOoGpSlCtWnUlbI40IrdBu\",\r\n\"enabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/users/danielle",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users",
+						"danielle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/users/danielle",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users",
+						"danielle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorities",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/users/danielle/authorities",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users",
+						"danielle",
+						"authorities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Authority",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"danielle\",\r\n    \"authority\": \"ROLE_USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/users/danielle/authorities",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users",
+						"danielle",
+						"authorities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Authority",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYWNrb2ZmaWNlIiwiZXhwIjoxNjM3NjkzNDQ2LCJpYXQiOjE2MzY4Mjk0NDZ9.GyQrxd8ORol_NKrd4vEArmTvx7r09BoN86W44kHJmKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/users/danielle/authorities/ROLE_USER",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"users",
+						"danielle",
+						"authorities",
+						"ROLE_USER"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

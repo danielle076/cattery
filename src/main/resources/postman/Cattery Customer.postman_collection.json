@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "298ff0db-84f2-4ec1-bee4-867fcb4915c5",
+		"name": "Cattery Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Customers",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjM3NjkyMTMzLCJpYXQiOjE2MzY4MjgxMzN9.tp2esEsrmpPgKUKNRqhsg9NshN-bIvbH1uwWnPtD-HY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/customers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer {id}",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjM3NjkyMTMzLCJpYXQiOjE2MzY4MjgxMzN9.tp2esEsrmpPgKUKNRqhsg9NshN-bIvbH1uwWnPtD-HY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/customers/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Customer",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjM3NjkyMTMzLCJpYXQiOjE2MzY4MjgxMzN9.tp2esEsrmpPgKUKNRqhsg9NshN-bIvbH1uwWnPtD-HY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Elize\",\r\n    \"lastName\": \"Groen\",\r\n    \"dateOfBirth\": \"1981-01-20\",    \r\n    \"email\": \"elize@gmail.com\",\r\n    \"phoneNumber\": \"0687654321\",\r\n    \"whichBreed\": \"Birman\",\r\n    \"otherPets\": \"Konijn\",\r\n    \"streetName\": \"Dorpstraat\",\r\n    \"houseNumber\": \"60\",\r\n    \"postalCode\": \"1000AB\",\r\n    \"homeTown\": \"Amsterdam\"   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/customers/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"customers",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer {id}",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjM3NjkyMTMzLCJpYXQiOjE2MzY4MjgxMzN9.tp2esEsrmpPgKUKNRqhsg9NshN-bIvbH1uwWnPtD-HY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Yvonne\",\r\n    \"lastName\": \"Blauwtjes\",\r\n    \"dateOfBirth\": \"1970-03-15\",\r\n    \"email\": \"yvonne@gmail.com\",\r\n    \"phoneNumber\": \"0656782341\",\r\n    \"whichBreed\": \"Siamese\",\r\n    \"otherPets\": \"Horse\",\r\n    \"streetName\": \"Laanweg\",\r\n    \"houseNumber\": \"17\",\r\n    \"postalCode\": \"3000YZ\",\r\n    \"homeTown\": \"Rotterdam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/customers/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjM3NjkyMTMzLCJpYXQiOjE2MzY4MjgxMzN9.tp2esEsrmpPgKUKNRqhsg9NshN-bIvbH1uwWnPtD-HY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/customers/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Lastname",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjM3NjkyMTMzLCJpYXQiOjE2MzY4MjgxMzN9.tp2esEsrmpPgKUKNRqhsg9NshN-bIvbH1uwWnPtD-HY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/customers/lastname/van den akker",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"customers",
+						"lastname",
+						"van den akker"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
